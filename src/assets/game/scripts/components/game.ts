@@ -47,6 +47,10 @@ export default class Game extends GameComponent {
     override containerOptions = containerOptions;
 
     private originalCardPosition: Vec3[] = [];
+    private choiceWinningSounds = {
+        dragon: "dragon-growl",
+        tiger: "tiger-growl",
+    };
 
     onLoad() {
         super.onLoad();
@@ -94,6 +98,7 @@ export default class Game extends GameComponent {
         if (spine) {
             fadeOut(staticImage, 0.2);
             spine.node.active = true;
+            this.playSound(this.choiceWinningSounds[winChoice]);
             const animationName = winChoice;
             const duration = spine.findAnimation(animationName).duration;
             const hidingDuration = 0.2;
