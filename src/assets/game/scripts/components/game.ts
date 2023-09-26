@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, Vec3, _decorator, sp, tween } from "cc";
+import { Label, Node, Vec3, _decorator, sp, tween, WebView ,UITransform } from "cc";
 import { PokerCard, ServiceCard } from "db://shared-components/game/poker-cards/scripts/poker-card";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { WinningResult } from "db://shared-components/shared/common-components/winning-result/scripts/winning-result";
@@ -43,6 +43,11 @@ export default class Game extends GameComponent {
     @property(WinningResult)
     winningResult: WinningResult = null;
 
+    @property(Node)
+    miniGamesContainer: Node = null;
+
+    openedGameIndex = 0;
+
     override namespace = settings.name;
     override containerOptions = containerOptions;
 
@@ -57,6 +62,40 @@ export default class Game extends GameComponent {
         this.initResultSpines();
         this.cards.forEach((card) => this.originalCardPosition.push(new Vec3(card.node.position)));
         this.winningResult.hideQuickly();
+    }
+
+    randomnumber(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    openMiniGame(){
+        const baseGameIds = [1,3,4,6,7,9,45,50];
+        if(this.openedGameIndex < 4 ){
+            console.log("mini games: ", this.miniGamesContainer.children.length);
+            const session = btoa(JSON.stringify(gc.StorageManager.get(gc.localStorageKeys.session)));
+            const baseUrl = `http://localhost:7456/build?mode=minigame&session=${session}`;
+            
+            const gameIds = [baseGameIds[this.openedGameIndex]];        
+            this.openedGameIndex += 1;
+            gameIds.forEach((id) => {
+                
+                const newNode = new Node();
+                newNode.addComponent(WebView);
+                this.miniGamesContainer.insertChild(newNode, this.miniGamesContainer.children.length);            
+                const minigame1 = newNode.getComponent(WebView);
+                const url = `${baseUrl}&gameId=${id}`;
+                minigame1.url = url;             
+                minigame1.node.addComponent(UITransform);
+                const uiTransform = minigame1.node.getComponent(UITransform);
+                uiTransform.width = 500;
+                uiTransform.height = 300;
+                //newNode.position = new Vec3(100*random, 50*random, 0);            
+            })
+        }
+    }
+
+    removeMiniGame(){
+        this.miniGamesContainer.removeAllChildren();
     }
 
     async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
