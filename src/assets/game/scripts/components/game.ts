@@ -73,7 +73,7 @@ export default class Game extends GameComponent {
         if(this.openedGameIndex < 4 ){
             console.log("mini games: ", this.miniGamesContainer.children.length);
             const session = btoa(JSON.stringify(gc.StorageManager.get(gc.localStorageKeys.session)));
-            const baseUrl = `http://localhost:7456/build?mode=minigame&session=${session}`;
+            const baseUrl = `http://localhost:7456/?mode=minigame&session=${session}`;
             
             const gameIds = [baseGameIds[this.openedGameIndex]];        
             this.openedGameIndex += 1;
@@ -87,8 +87,8 @@ export default class Game extends GameComponent {
                 minigame1.url = url;             
                 minigame1.node.addComponent(UITransform);
                 const uiTransform = minigame1.node.getComponent(UITransform);
-                uiTransform.width = 500;
-                uiTransform.height = 300;
+                uiTransform.width = 600;
+                uiTransform.height = 400;
                 //newNode.position = new Vec3(100*random, 50*random, 0);            
             })
         }

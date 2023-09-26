@@ -5080,7 +5080,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 28,
     "md5Tip": null,
-    "_id": "e4OvaM3kBNGKeqd64mPOOa"
+    "_id": "9ea/gAavZGbLJj5t22ipY/"
   },
   {
     "__type__": "cc.Node",
@@ -6918,7 +6918,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1200,
+      "width": 1400,
       "height": 800
     },
     "_anchorPoint": {
@@ -6942,8 +6942,8 @@
     "_layoutType": 3,
     "_cellSize": {
       "__type__": "cc.Size",
-      "width": 500,
-      "height": 300
+      "width": 600,
+      "height": 400
     },
     "_startAxis": 0,
     "_paddingLeft": 0,
