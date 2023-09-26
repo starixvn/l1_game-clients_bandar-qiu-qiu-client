@@ -240,3 +240,10 @@ cocos_integration_docker_build:
       when: never
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: "$CI_COMMIT_BRANCH"
+
+.sonar_js:
+  before_script:
+    - - echo "===========Start Sonar Scanner============="
+    - echo $SRC_PATH
+    - echo $TEST_PATH
+    - cp ./src/tsconfig.sonar.json ./src/tsconfig.json
