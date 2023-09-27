@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, Vec3, _decorator, sp, tween, WebView ,UITransform } from "cc";
+import { Label, Node, Vec3, _decorator, sp, tween, WebView ,UITransform, EventTarget, EventT, v3  } from "cc";
 import { PokerCard, ServiceCard } from "db://shared-components/game/poker-cards/scripts/poker-card";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { WinningResult } from "db://shared-components/shared/common-components/winning-result/scripts/winning-result";
@@ -18,6 +18,16 @@ startGame(settings.name, containerOptions, siteConfigs);
 
 const { ccclass, property } = _decorator;
 const { observer, render, handle } = Observer;
+
+const eventTarget = new EventTarget();
+
+window.addEventListener('message', e => {
+    console.log("message", e['data']);
+    if(e['data'] === "close-game"){
+        eventTarget.emit("close-game", e['data']);
+    }    
+    
+},false);
 
 @ccclass
 @observer(settings.name)
@@ -46,7 +56,12 @@ export default class Game extends GameComponent {
     @property(Node)
     miniGamesContainer: Node = null;
 
+    @property(Node)
+    minigame: Node = null;
+
     openedGameIndex = 0;
+
+    movedArray = [];
 
     override namespace = settings.name;
     override containerOptions = containerOptions;
@@ -62,18 +77,22 @@ export default class Game extends GameComponent {
         this.initResultSpines();
         this.cards.forEach((card) => this.originalCardPosition.push(new Vec3(card.node.position)));
         this.winningResult.hideQuickly();
+
+        eventTarget.on("close-game", (data) => {
+            this.closeMiniGame();
+        })
     }
 
     randomnumber(min, max){
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
+    
     openMiniGame(){
         const baseGameIds = [1,3,4,6,7,9,45,50];
-        if(this.openedGameIndex < 4 ){
-            console.log("mini games: ", this.miniGamesContainer.children.length);
+        if(this.openedGameIndex < 1 ){
+            console.log("mini games: ", this.minigame.children.length);
             const session = btoa(JSON.stringify(gc.StorageManager.get(gc.localStorageKeys.session)));
-            const baseUrl = `https://l1-games3.lumigame.com/?mode=minigame&session=${session}`;
+            const baseUrl = `http://localhost:7456/?mode=minigame&session=${session}`;
             
             const gameIds = [baseGameIds[this.openedGameIndex]];        
             this.openedGameIndex += 1;
@@ -81,7 +100,7 @@ export default class Game extends GameComponent {
                 
                 const newNode = new Node();
                 newNode.addComponent(WebView);
-                this.miniGamesContainer.insertChild(newNode, this.miniGamesContainer.children.length);            
+                this.minigame.insertChild(newNode, 0);// this.miniGamesContainer.children.length);            
                 const minigame1 = newNode.getComponent(WebView);
                 const url = `${baseUrl}&gameId=${id}`;
                 minigame1.url = url;             
@@ -92,10 +111,13 @@ export default class Game extends GameComponent {
                 //newNode.position = new Vec3(100*random, 50*random, 0);            
             })
         }
+        this.miniGamesContainer.active = true;
     }
 
-    removeMiniGame(){
-        this.miniGamesContainer.removeAllChildren();
+    closeMiniGame(){
+        this.minigame.removeAllChildren();
+        this.miniGamesContainer.active = false;
+        this.openedGameIndex = 0;
     }
 
     async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {

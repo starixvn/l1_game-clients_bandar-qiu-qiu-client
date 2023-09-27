@@ -29,7 +29,7 @@ export default class DraggableItem extends Component {
             return true;
         }
 
-        const touchLocation = event.touch.getLocation();
+        const touchLocation = event.touch._point;
         return this.colliders.some((collider) => Intersection2D.pointInPolygon(touchLocation, collider.points));
     }
 
@@ -54,19 +54,25 @@ export default class DraggableItem extends Component {
         }
         this.isTouchStarted = true;
         this.touchCallback.start(this.node);
-        this.startPosition = this.target.position;
-        this.startTouchLocation = e.touch.getLocation();
+        this.startPosition = v3(this.target.position.x, this.target.position.y, this.target.position.z);
+        this.startTouchLocation = e.touch._point;
     }
 
     onTouchMove(e) {
         if (!this.isTouchStarted) {
             return;
         }
-        this.target.position = e.touch.getLocation().sub(this.startTouchLocation).add(this.startPosition);
-        this.touchCallback.move(e.touch.getLocation());
+        const x = this.startPosition.x + e.touch._point.x - this.startTouchLocation.x;
+        const y = this.startPosition.y + e.touch._point.y - this.startTouchLocation.y;
+        const z = this.startPosition.z;
+        console.log(x, y, z, this.startTouchLocation, e.touch._point, this.startPosition);
+
+        this.target.position = v3(x,y,z);// e.touch._point.sub(this.startTouchLocation).add(this.startPosition);
+        this.touchCallback.move(e.touch._point);
     }
 
     onTouchEnd(e) {
+        console.log("e", e);
         if (!this.isTouchStarted) {
             return;
         }
@@ -75,8 +81,8 @@ export default class DraggableItem extends Component {
     }
 
     isClicked(e): boolean {
-        const delta = e.touch.getLocation().sub(this.startTouchLocation);
-        return Math.abs(delta.x) + Math.abs(delta.y) < 10;
+        //const delta = e.touch._point.sub(this.startTouchLocation);
+        return true;// Math.abs(delta.x) + Math.abs(delta.y) < 10;
     }
 
     onTouchCancel(e) {
