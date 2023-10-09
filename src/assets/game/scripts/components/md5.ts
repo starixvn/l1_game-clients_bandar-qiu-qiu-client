@@ -12,6 +12,7 @@ export type ExtraInfos = {
     red3: boolean;
     red4: boolean;
 };
+
 @ccclass
 @observer(settings.name)
 export default class MD5 extends MD5Component {
