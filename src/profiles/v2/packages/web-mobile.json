@@ -22,11 +22,6 @@
           "inBundle": false
         },
         {
-          "url": "db://shared-components/feature-structure/scene.scene",
-          "uuid": "b97b166d-3dd1-4968-8fa8-488f447e05b0",
-          "inBundle": false
-        },
-        {
           "url": "db://shared-components/session-timeout/session-timeout.scene",
           "uuid": "1b4ca76d-3ce5-41e6-a47c-0fb1f85bb3f4",
           "inBundle": false
@@ -34,16 +29,6 @@
         {
           "url": "db://shared-components/under-maintenance/under-maintenance.scene",
           "uuid": "3640a00f-a2ed-4aec-b369-779ede63f5df",
-          "inBundle": false
-        },
-        {
-          "url": "db://shared-components/game/scoreboards/scoreboard.scene",
-          "uuid": "9ec9624e-8ef6-4e81-bf0e-34a4eab4a438",
-          "inBundle": false
-        },
-        {
-          "url": "db://shared-components/shared/common-components/integrations/identifier.scene",
-          "uuid": "8fa0d7ef-6c87-40c2-bd73-c63184ba47ff",
           "inBundle": false
         }
       ],

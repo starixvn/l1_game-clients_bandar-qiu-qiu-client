@@ -10,8 +10,8 @@
         "id": "1681353552761",
         "progress": 1,
         "state": "success",
-        "stage": "run",
-        "message": "8-22-2023 15:46:47 run package E:\\project\\dragon-tiger-fight-client\\src\\build\\web-mobile success!",
+        "stage": "build",
+        "message": "10-12-2023 11:16:28 build success in 127610 ms!",
         "options": {
           "name": "cocos-3x",
           "platform": "web-mobile",
@@ -43,11 +43,6 @@
               "inBundle": false
             },
             {
-              "url": "db://shared-components/feature-structure/scene.scene",
-              "uuid": "b97b166d-3dd1-4968-8fa8-488f447e05b0",
-              "inBundle": false
-            },
-            {
               "url": "db://shared-components/session-timeout/session-timeout.scene",
               "uuid": "1b4ca76d-3ce5-41e6-a47c-0fb1f85bb3f4",
               "inBundle": false
@@ -55,16 +50,6 @@
             {
               "url": "db://shared-components/under-maintenance/under-maintenance.scene",
               "uuid": "3640a00f-a2ed-4aec-b369-779ede63f5df",
-              "inBundle": false
-            },
-            {
-              "url": "db://shared-components/game/scoreboards/scoreboard.scene",
-              "uuid": "9ec9624e-8ef6-4e81-bf0e-34a4eab4a438",
-              "inBundle": false
-            },
-            {
-              "url": "db://shared-components/shared/common-components/integrations/identifier.scene",
-              "uuid": "8fa0d7ef-6c87-40c2-bd73-c63184ba47ff",
               "inBundle": false
             }
           ],
@@ -79,8 +64,75 @@
           "bundleCommonChunk": false,
           "logDest": "project://temp/builder/log/web-mobile4-13-2023 09-39.log"
         },
-        "time": "8-22-2023 15:44:39",
-        "dirty": false
+        "time": "10-12-2023 11:14:20",
+        "dirty": true,
+        "rawOptions": {
+          "name": "cocos-3x",
+          "platform": "web-mobile",
+          "buildPath": "project://build",
+          "debug": false,
+          "md5Cache": false,
+          "skipCompressTexture": false,
+          "sourceMaps": false,
+          "polyfills": {
+            "asyncFunctions": true
+          },
+          "experimentalEraseModules": false,
+          "useBuiltinServer": false,
+          "mainBundleIsRemote": false,
+          "mainBundleCompressionType": "merge_dep",
+          "useSplashScreen": false,
+          "packAutoAtlas": true,
+          "startScene": "cdeb5c24-9ba8-4cab-a306-8a562fd04b39",
+          "outputName": "web-mobile",
+          "scenes": [
+            {
+              "url": "db://assets/game/game.scene",
+              "uuid": "4229fd91-1ded-407f-b130-7b678b820c27",
+              "inBundle": false
+            },
+            {
+              "url": "db://assets/game/splash/splash.scene",
+              "uuid": "cdeb5c24-9ba8-4cab-a306-8a562fd04b39",
+              "inBundle": false
+            },
+            {
+              "url": "db://shared-components/session-timeout/session-timeout.scene",
+              "uuid": "1b4ca76d-3ce5-41e6-a47c-0fb1f85bb3f4",
+              "inBundle": false
+            },
+            {
+              "url": "db://shared-components/under-maintenance/under-maintenance.scene",
+              "uuid": "3640a00f-a2ed-4aec-b369-779ede63f5df",
+              "inBundle": false
+            }
+          ],
+          "web-desktop": [],
+          "packages": {
+            "engine": {
+              "cleanupImageCache": "off"
+            },
+            "web-mobile": {
+              "orientation": "landscape",
+              "embedWebDebugger": false,
+              "__version__": "1.0.1",
+              "cullEngineAsmJsModule": false
+            },
+            "cocos-service": {
+              "configID": "f86d3e",
+              "services": [],
+              "__version__": "3.0.6"
+            }
+          },
+          "__version__": "1.3.4",
+          "web-mobile": [],
+          "taskName": "web-mobile",
+          "server": "",
+          "startSceneAssetBundle": false,
+          "bundleConfigs": [],
+          "bundleCommonChunk": false,
+          "logDest": "project://temp/builder/log/web-mobile4-13-2023 09-39.log"
+        }
       }
     }
   },
@@ -105,11 +157,6 @@
         "inBundle": false
       },
       {
-        "url": "db://shared-components/feature-structure/scene.scene",
-        "uuid": "b97b166d-3dd1-4968-8fa8-488f447e05b0",
-        "inBundle": false
-      },
-      {
         "url": "db://shared-components/session-timeout/session-timeout.scene",
         "uuid": "1b4ca76d-3ce5-41e6-a47c-0fb1f85bb3f4",
         "inBundle": false
@@ -117,16 +164,6 @@
       {
         "url": "db://shared-components/under-maintenance/under-maintenance.scene",
         "uuid": "3640a00f-a2ed-4aec-b369-779ede63f5df",
-        "inBundle": false
-      },
-      {
-        "url": "db://shared-components/game/scoreboards/scoreboard.scene",
-        "uuid": "9ec9624e-8ef6-4e81-bf0e-34a4eab4a438",
-        "inBundle": false
-      },
-      {
-        "url": "db://shared-components/shared/common-components/integrations/identifier.scene",
-        "uuid": "8fa0d7ef-6c87-40c2-bd73-c63184ba47ff",
         "inBundle": false
       }
     ],
