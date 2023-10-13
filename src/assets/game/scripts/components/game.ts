@@ -207,8 +207,8 @@ export default class Game extends GameComponent {
         const baseGameIds = [1,3,4,6,7,9,45,50];
         if(this.openedGameIndex < 1 ){
             const session = btoa(JSON.stringify(gc.StorageManager.get(gc.localStorageKeys.session)));
-            //const baseUrl = `https://l1-games3.lumigame.com/?mode=minigame&session=${session}`; //`http://localhost:7456/?mode=minigame&session=${session}`;
-            const baseUrl = `http://localhost:7456/?mode=minigame&session=${session}`;            
+            const baseUrl = `https://l1-games3.lumigame.com/?mode=minigame&session=${session}`; //`http://localhost:7456/?mode=minigame&session=${session}`;
+            //const baseUrl = `http://localhost:7456/?mode=minigame&session=${session}`;            
             
             const gameIds = [baseGameIds[this.openedGameIndex]];        
             this.openedGameIndex += 1;
