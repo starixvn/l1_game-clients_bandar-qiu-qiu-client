@@ -22,15 +22,25 @@ const { observer} = Observer;
 const eventTarget = new EventTarget();
 
 window.addEventListener('message', e => {
-    const message = JSON.parse(e['data']);
-    if(message.type === "MOUSE_MOVE"){
-        eventTarget.emit("MOUSE_MOVE", e['data']);
+    try{
+        if(e['data'] === "close-game"){
+            eventTarget.emit("close-game");
+        }
+        else{
+            const message = JSON.parse(e['data']);
+            if(message.type === "MOUSE_MOVE"){
+                eventTarget.emit("MOUSE_MOVE", e['data']);
+            }
+            else if(message.type === "MOUSE_DOWN"){
+                eventTarget.emit("MOUSE_DOWN", e['data']);
+            }
+            else if(message.type === "MOUSE_UP"){
+                eventTarget.emit("MOUSE_UP", e['data']);
+            }
+        }        
     }
-    else if(message.type === "MOUSE_DOWN"){
-        eventTarget.emit("MOUSE_DOWN", e['data']);
-    }
-    else if(message.type === "MOUSE_UP"){
-        eventTarget.emit("MOUSE_UP", e['data']);
+    catch(ex){
+        console.log("error");
     }
 },false);    
 
@@ -119,7 +129,7 @@ export default class Game extends GameComponent {
                     this.eliminateInvalidY += 1;
                 }
 
-                if((validMovedX || this.eliminateInvalidX > 3) && (validMovedY || this.eliminateInvalidY > 3)){
+                if((validMovedX || this.eliminateInvalidX > 2) && (validMovedY || this.eliminateInvalidY > 2)){
                     this.eliminateInvalidX = 0;
                     this.eliminateInvalidY = 0;
                     this.previousMovedX = movedX;
@@ -127,7 +137,7 @@ export default class Game extends GameComponent {
                     this.miniGamesContainer.position = v3(this.containerStartedX + movedX, this.containerStartedY + movedY, this.miniGamesContainer.position.z);
                 }
                 else{
-                    console.log("invalid move ", movedX, movedY, this.previousMovedX, this.previousMovedY, this.eliminateInvalidX, this.eliminateInvalidY);
+                    console.log("invalid move ", movedX, "-", this.previousMovedX, "," , movedY, "-", this.previousMovedY, this.eliminateInvalidX, this.eliminateInvalidY);
                 }
             }
         })
@@ -220,7 +230,7 @@ export default class Game extends GameComponent {
     }
 
     closeMiniGame(){
-        this.minigame.removeAllChildren();
+        this.miniGamesContainer.removeAllChildren();
         this.miniGamesContainer.active = false;
         this.openedGameIndex = 0;
     }
