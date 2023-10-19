@@ -117,24 +117,7 @@ export const languages = {
         "under_maintenance_time": "从 %{startTime} 到 %{endTime} (GMT+8)",
         "win": "赢"
     },
-    "DragonTigerFight": {
-        "bet_history_dragon": "(龙",
-        "bet_history_tiger": "虎)",
-        "dragon_win": "龙赢",
-        "game_icon_name": "龙虎斗",
-        "game_name": "龙虎斗",
-        "glossary_blackDragon": "龙黑",
-        "glossary_blackTiger": "虎黑",
-        "glossary_dragon": "龙",
-        "glossary_redDragon": "龙红",
-        "glossary_redTiger": "虎红",
-        "glossary_tie": "平局",
-        "glossary_tiger": "虎",
-        "option_black": "黑",
-        "option_red": "红",
-        "tie_win": "和局!",
-        "tiger_win": "虎赢"
-    }
+    "BandarQiuQiu": {}
 };
 
 if (!win.languages) {

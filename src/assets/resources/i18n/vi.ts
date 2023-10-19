@@ -117,23 +117,13 @@ export const languages = {
         "under_maintenance_time": "Thời gian bảo trì từ %{startTime} đến %{endTime} (GMT+8).",
         "win": "Thắng"
     },
-    "DragonTigerFight": {
-        "bet_history_dragon": "(Rồng",
-        "bet_history_tiger": "Hổ)",
-        "dragon_win": "RỒNG THẮNG",
-        "game_icon_name": "Đại Chiến Rồng Hổ",
-        "game_name": "Đại Chiến Rồng Hổ",
-        "glossary_blackDragon": "Rồng Đen",
-        "glossary_blackTiger": "Hổ Đen",
-        "glossary_dragon": "Rồng",
-        "glossary_redDragon": "Rồng Đỏ",
-        "glossary_redTiger": "Hổ Đỏ",
-        "glossary_tie": "Hòa",
-        "glossary_tiger": "Hổ",
-        "option_black": "Đen",
-        "option_red": "Đỏ",
-        "tie_win": "HÒA!",
-        "tiger_win": "HỔ THẮNG"
+    "BandarQiuQiu": {
+        "game_icon_name": "Bandar Qiu Qiu",
+        "game_name": "Bandar Qiu Qiu",
+        "option_club": "Chuồn",
+        "option_diamond": "Rô",
+        "option_heart": "Cơ",
+        "option_spade": "Bích"
     }
 };
 
