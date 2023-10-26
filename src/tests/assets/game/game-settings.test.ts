@@ -10,16 +10,16 @@ describe("settings", () => {
     it("should have data as expected", () => {
         // Assert
         expect(settings).toStrictEqual({
-            id: 67,
-            name: "DragonTigerFight",
+            id: 75,
+            name: "BandarQiuQiu",
             durations: {
-                wholeRound: 41,
+                wholeRound: 39,
                 lockingBet: 3,
-                placingBet: 30,
-                generatingResult: 3,
-                startRound: 2,
+                placingBet: 25,
+                generatingResult: 5,
+                startRound: 4,
             },
-            numberOfRoundHistory: 102,
+            numberOfRoundHistory: 100,
         });
     });
 });

@@ -1,7 +1,7 @@
 jest.mock("./../../../../assets/game/scripts/game-settings", () => ({
     settings: {
         id: 67,
-        name: "DragonTigerFight",
+        name: "BandarQiuQiu",
     },
 }));
 
@@ -34,13 +34,13 @@ jest.mock("observer", () => {
 });
 
 import EffectAppearanceLabel from "db://shared-components/game/md5/scripts/effect-appearance-label";
-import MD5 from "../../../../assets/game/scripts/components/md5";
 import { MD5Type } from "db://shared-components/game/md5/scripts/md5-component";
+import MD5 from "../../../../assets/game/scripts/components/md5";
 import { Label } from "../../../cocos-testing/cc/label";
-import { Node } from "../../../cocos-testing/cc/node";
 import { Mask } from "../../../cocos-testing/cc/mask";
+import { Node } from "../../../cocos-testing/cc/node";
 
-import { mockDeep, DeepMockProxy } from "jest-mock-extended";
+import { mockDeep } from "jest-mock-extended";
 
 describe("MD5 tests", () => {
     let md5Instance: MD5;

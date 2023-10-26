@@ -18,7 +18,7 @@ echo     enableMsgpackParserOnNotification: false,
 echo     userServiceUrlDev: "http://localhost:9998/",
 echo     proxyRoute: "",
 echo     websocket: {
-echo        proxyPath: "dragontigerfight",
+echo        proxyPath: "bandarqiuqiu",
 echo        route: "",
 echo    },
 echo };
@@ -31,4 +31,4 @@ docker rm dev-integration-test-container -f
 docker run -d -p "9999:80" --name dev-integration-test-container -v "%cd%/build/web-mobile/:/usr/share/nginx/html" game-client-integration-test:latest
 :: 5) Run stub service container
 docker pull hub.lumigame.com/pentagon/game-clients/stub-service:LOCAL-latest
-docker rm local-integration-stub-service -f & docker run -d -p "9998:8080" -v "%cd%/tests/integration-tests/data:/builds/tests/integration-tests" --env NAMESPACES="/,/user/dragontigerfight" --name local-integration-stub-service hub.lumigame.com/pentagon/game-clients/stub-service:LOCAL-latest
+docker rm local-integration-stub-service -f & docker run -d -p "9998:8080" -v "%cd%/tests/integration-tests/data:/builds/tests/integration-tests" --env NAMESPACES="/,/user/bandarqiuqiu" --name local-integration-stub-service hub.lumigame.com/pentagon/game-clients/stub-service:LOCAL-latest

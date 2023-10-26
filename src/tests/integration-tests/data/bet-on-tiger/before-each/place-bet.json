@@ -2,7 +2,7 @@
     "name": "Place Bet",
     "server": {
         "waitForRequest": {
-            "namespace": "/user/dragontigerfight",
+            "namespace": "/user/bandarqiuqiu",
             "event": "bet",
             "payload": {
                 "m": 1,
@@ -14,8 +14,8 @@
         },
         "response": [
             {
-                "namespace": "/user/dragontigerfight",
-                "event": "DragonTigerFight",
+                "namespace": "/user/bandarqiuqiu",
+                "event": "BandarQiuQiu",
                 "payload": {
                     "ownBets": {
                         "tiger": 1

@@ -5,8 +5,8 @@
             "delay": 6000,
             "response": [
                 {
-                    "namespace": "/user/dragontigerfight",
-                    "event": "DragonTigerFight",
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
                     "payload": {
                         "finish": {
                             "result": {
@@ -47,8 +47,8 @@
                     }
                 },
                 {
-                    "namespace": "/user/dragontigerfight",
-                    "event": "DragonTigerFight",
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
                     "payload": {
                         "status": {
                             "winningByChoices": {
@@ -66,8 +66,8 @@
                     }
                 },
                 {
-                    "namespace": "/user/dragontigerfight",
-                    "event": "DragonTigerFight",
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
                     "payload": {
                         "winners": {
                             "roundId": 2,

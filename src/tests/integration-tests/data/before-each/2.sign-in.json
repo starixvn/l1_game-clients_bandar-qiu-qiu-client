@@ -3,7 +3,7 @@
         "name": "Sign In",
         "server": {
             "waitForRequest": {
-                "namespace": "/user/dragontigerfight",
+                "namespace": "/user/bandarqiuqiu",
                 "event": "signin",
                 "payload": {
                     "ss": "ss",
@@ -13,7 +13,7 @@
             },
             "response": [
                 {
-                    "namespace": "/user/dragontigerfight",
+                    "namespace": "/user/bandarqiuqiu",
                     "event": "message",
                     "payload": {
                         "userStakeLevel": {
@@ -23,15 +23,15 @@
                     }
                 },
                 {
-                    "namespace": "/user/dragontigerfight",
+                    "namespace": "/user/bandarqiuqiu",
                     "event": "signedIn",
                     "payload": {}
                 },
                 {
-                    "namespace": "/user/dragontigerfight",
+                    "namespace": "/user/bandarqiuqiu",
                     "event": "message",
                     "payload": {
-                        "toGame": "DragonTigerFight"
+                        "toGame": "BandarQiuQiu"
                     }
                 }
             ]

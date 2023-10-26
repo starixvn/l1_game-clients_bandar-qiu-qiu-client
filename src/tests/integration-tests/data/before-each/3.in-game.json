@@ -3,14 +3,14 @@
         "name": "In Game",
         "server": {
             "waitForRequest": {
-                "namespace": "/user/dragontigerfight",
+                "namespace": "/user/bandarqiuqiu",
                 "event": "inGame",
                 "payload": null
             },
             "response": [
                 {
-                    "namespace": "/user/dragontigerfight",
-                    "event": "DragonTigerFight",
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
                     "payload": {
                         "roundId": 2,
                         "gameConfigs": {

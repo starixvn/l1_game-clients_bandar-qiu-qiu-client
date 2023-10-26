@@ -8,8 +8,8 @@ variables:
   GIT_STRATEGY: clone
   COCOS_VERSION: "3.8.0"
   COCOS_PROJECT_DIR: src
-  INTEGRATION_IMAGE: pentagon/l1_dragon_tiger_fight_client
-  INTEGRATION_WS_PATH: dragontigerfight
+  INTEGRATION_IMAGE: pentagon/l1_bandar_qiu_qiu_client
+  INTEGRATION_WS_PATH: bandarqiuqiu
 
 .build_cocos_creator_script: &build_cocos_creator_script
   stage: build-cocos-web
