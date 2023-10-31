@@ -202,7 +202,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 418.57925636007826,
+    "_orthoHeight": 496.27378190255223,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -723,7 +723,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 65.176,
       "z": 0
     },
     "_lrot": {
@@ -770,7 +770,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -287,
+      "x": -277,
       "y": -2,
       "z": 0
     },
@@ -809,8 +809,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 574,
-      "height": 607
+      "width": 554,
+      "height": 482
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -879,7 +879,7 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 287,
+      "x": 277,
       "y": -2,
       "z": 0
     },
@@ -918,8 +918,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 574,
-      "height": 607
+      "width": 554,
+      "height": 482
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -979,7 +979,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 1148,
+      "width": 1108,
       "height": 100
     },
     "_anchorPoint": {
@@ -1429,7 +1429,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": -6,
-      "y": -43,
+      "y": 35.817,
       "z": 0
     }
   },
@@ -2856,7 +2856,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": -491.287,
-      "y": 156.546,
+      "y": 251.419,
       "z": 0
     }
   },
@@ -2877,8 +2877,8 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 508.366,
-      "y": 148.061,
+      "x": 587.128,
+      "y": 124.79,
       "z": 0
     }
   },
@@ -2892,8 +2892,8 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 576.19,
-      "y": 0.7629999999999999,
+      "x": 579.77,
+      "y": -94.11,
       "z": 0
     }
   },
@@ -3457,7 +3457,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 28,
     "md5Tip": null,
-    "_id": "38BnrSf1RBepK16gwWOHu7"
+    "_id": "0dZkbz5aBBuqj04hynuebU"
   },
   {
     "__type__": "cc.Node",
