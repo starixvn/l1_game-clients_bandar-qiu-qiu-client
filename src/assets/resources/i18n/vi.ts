@@ -120,10 +120,12 @@ export const languages = {
     "BandarQiuQiu": {
         "game_icon_name": "Bandar Qiu Qiu",
         "game_name": "Bandar Qiu Qiu",
-        "option_club": "Chuồn",
-        "option_diamond": "Rô",
-        "option_heart": "Cơ",
-        "option_spade": "Bích"
+        "glossary_hand_ranking_big": "Lớn",
+        "glossary_hand_ranking_ordinary": "Tay Bài Thường",
+        "glossary_hand_ranking_qiuqiu": "Qiu Qiu (99)",
+        "glossary_hand_ranking_six_devil": "Sáu Devil",
+        "glossary_hand_ranking_small": "Nhỏ",
+        "glossary_hand_ranking_twin": "Đôi"
     }
 };
 

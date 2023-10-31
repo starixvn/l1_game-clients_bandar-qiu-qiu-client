@@ -117,7 +117,16 @@ export const languages = {
         "under_maintenance_time": "從 %{startTime} 到 %{endTime} (GMT+8)",
         "win": "贏"
     },
-    "BandarQiuQiu": {}
+    "BandarQiuQiu": {
+        "game_icon_name": "Bandar Qiu Qiu",
+        "game_name": "Bandar Qiu Qiu",
+        "glossary_hand_ranking_big": "大",
+        "glossary_hand_ranking_ordinary": "普通牌",
+        "glossary_hand_ranking_qiuqiu": "QQ",
+        "glossary_hand_ranking_six_devil": "六魔",
+        "glossary_hand_ranking_small": "小",
+        "glossary_hand_ranking_twin": "雙"
+    }
 };
 
 if (!win.languages) {

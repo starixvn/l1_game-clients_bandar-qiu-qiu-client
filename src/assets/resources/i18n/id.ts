@@ -117,7 +117,16 @@ export const languages = {
         "under_maintenance_time": "Mulai dari %{startTime} hingga %{endTime} (GMT+8)",
         "win": "Menang"
     },
-    "BandarQiuQiu": {}
+    "BandarQiuQiu": {
+        "game_icon_name": "\nBandar Qiu Qiu",
+        "game_name": "\nBandar Qiu Qiu",
+        "glossary_hand_ranking_big": "Besar",
+        "glossary_hand_ranking_ordinary": "Kartu biasa",
+        "glossary_hand_ranking_qiuqiu": "Qiu Qiu",
+        "glossary_hand_ranking_six_devil": "Enam Iblis",
+        "glossary_hand_ranking_small": "Kecil",
+        "glossary_hand_ranking_twin": "Kembar"
+    }
 };
 
 if (!win.languages) {
