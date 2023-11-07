@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "ff40243a-1b4d-45e4-939b-7bd64944bee8",
+  "uuid": "5fbe9cd0-d69a-4ae6-bcb6-d80c124cb4fb",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "custom-bead-road-item"
+    "syncNodeName": "statistic"
   }
 }

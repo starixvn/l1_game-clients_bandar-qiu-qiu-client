@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "5fbe9cd0-d69a-4ae6-bcb6-d80c124cb4fb",
+  "uuid": "a55879e2-dac8-45da-ba59-0c8c961a0150",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "scoreboards"
+    "syncNodeName": "history-result-item"
   }
 }
