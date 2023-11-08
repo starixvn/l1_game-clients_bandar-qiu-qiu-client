@@ -540,7 +540,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Red Tiger",
+    "_string": "Yellow",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 19,
@@ -599,7 +599,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 86.28857421875,
+      "width": 59.8388671875,
       "height": 55.44
     },
     "_anchorPoint": {
@@ -1185,7 +1185,7 @@
     "_overflow": 0,
     "_enableWrapText": true,
     "_font": {
-      "__uuid__": "07a085e4-b80a-4758-a072-1fa33654490b",
+      "__uuid__": "ef8509f0-8c17-4d46-8ca0-a31d72a99153",
       "__expectedType__": "cc.BitmapFont"
     },
     "_isSystemFontUsed": false,
