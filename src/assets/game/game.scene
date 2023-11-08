@@ -3453,7 +3453,7 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 146.8,
+      "x": 158,
       "y": 191.035,
       "z": 0
     }
@@ -3496,7 +3496,7 @@
     },
     "sourceInfo": null,
     "propertyPath": [
-      "lblCaption"
+      "nodeHintCopy"
     ],
     "target": {
       "__id__": 193
@@ -3525,9 +3525,9 @@
     "lblMd5Value": null,
     "nodeHintCopy": null,
     "nodeContentContainer": null,
-    "lengthOfMd5": 28,
+    "lengthOfMd5": 26,
     "md5Tip": null,
-    "_id": "ab82sCmwxEB7iRueNeLy6Q"
+    "_id": "744sJrqvtCrrKtzHbxCUMQ"
   },
   {
     "__type__": "cc.Node",
@@ -3536,50 +3536,6 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "e765jcqKhNo5+7vMr88jh+"
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "fdzidID0BKmZmkVaLlx3DD"
-    ]
-  },
-  {
-    "__type__": "cc.TargetOverrideInfo",
-    "source": {
-      "__id__": 192
-    },
-    "sourceInfo": null,
-    "propertyPath": [
-      "lblMd5Value"
-    ],
-    "target": {
-      "__id__": 193
-    },
-    "targetInfo": {
-      "__id__": 197
-    }
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "25H4kI3fJEuajQHNove+PN"
-    ]
-  },
-  {
-    "__type__": "cc.TargetOverrideInfo",
-    "source": {
-      "__id__": 192
-    },
-    "sourceInfo": null,
-    "propertyPath": [
-      "nodeHintCopy"
-    ],
-    "target": {
-      "__id__": 193
-    },
-    "targetInfo": {
-      "__id__": 199
-    }
   },
   {
     "__type__": "cc.TargetInfo",
@@ -3600,7 +3556,7 @@
       "__id__": 193
     },
     "targetInfo": {
-      "__id__": 201
+      "__id__": 197
     }
   },
   {
@@ -3616,7 +3572,52 @@
     },
     "sourceInfo": null,
     "propertyPath": [
+      "lblMd5Value"
+    ],
+    "target": {
+      "__id__": 193
+    },
+    "targetInfo": {
+      "__id__": 199
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "25H4kI3fJEuajQHNove+PN"
+    ]
+  },
+  {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": {
+      "__id__": 192
+    },
+    "sourceInfo": null,
+    "propertyPath": [
       "md5Tip"
+    ],
+    "target": {
+      "__id__": 193
+    },
+    "targetInfo": {
+      "__id__": 201
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "40Y3jDtgBJOZuqk3u6mLyy",
+      "54hlt+rgJBUrpyNdDkDTxB"
+    ]
+  },
+  {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": {
+      "__id__": 192
+    },
+    "sourceInfo": null,
+    "propertyPath": [
+      "lblCaption"
     ],
     "target": {
       "__id__": 193
@@ -3628,8 +3629,7 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "40Y3jDtgBJOZuqk3u6mLyy",
-      "54hlt+rgJBUrpyNdDkDTxB"
+      "fdzidID0BKmZmkVaLlx3DD"
     ]
   },
   {
