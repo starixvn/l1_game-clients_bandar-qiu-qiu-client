@@ -120,12 +120,17 @@ export const languages = {
     "BandarQiuQiu": {
         "game_icon_name": "Bandar Qiu Qiu",
         "game_name": "Bandar Qiu Qiu",
+        "glossary_banker": "Banker",
+        "glossary_club": "Club",
+        "glossary_diamond": "Diamond",
         "glossary_hand_ranking_big": "Big",
         "glossary_hand_ranking_ordinary": "Ordinary Card",
-        "glossary_hand_ranking_qiuqiu": "Qiu Qiu",
+        "glossary_hand_ranking_qiuqiu": "Qiu Qiu (99)",
         "glossary_hand_ranking_six_devil": "Six Devil",
         "glossary_hand_ranking_small": "Small",
-        "glossary_hand_ranking_twin": "Twin"
+        "glossary_hand_ranking_twin": "Twin",
+        "glossary_heart": "Heart",
+        "glossary_spade": "Spade"
     }
 };
 

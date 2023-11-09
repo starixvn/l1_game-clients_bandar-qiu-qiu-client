@@ -120,12 +120,17 @@ export const languages = {
     "BandarQiuQiu": {
         "game_icon_name": "Bandar Qiu Qiu",
         "game_name": "Bandar Qiu Qiu",
+        "glossary_banker": "เจ้ามือ",
+        "glossary_club": "ดอกจิก",
+        "glossary_diamond": "ข้าวหลามตัด",
         "glossary_hand_ranking_big": "ใหญ่",
         "glossary_hand_ranking_ordinary": "การ์ดธรรมดา",
-        "glossary_hand_ranking_qiuqiu": "ชิวชิว",
+        "glossary_hand_ranking_qiuqiu": "ชิวชิว (99)",
         "glossary_hand_ranking_six_devil": "ปีศาจหกตัว",
         "glossary_hand_ranking_small": "เล็ก",
-        "glossary_hand_ranking_twin": "คู่"
+        "glossary_hand_ranking_twin": "คู่",
+        "glossary_heart": "โพแดง",
+        "glossary_spade": "โพดำ"
     }
 };
 

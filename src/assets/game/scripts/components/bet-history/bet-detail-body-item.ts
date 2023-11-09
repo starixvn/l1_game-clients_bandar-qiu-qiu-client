@@ -6,7 +6,7 @@ import {
 import BetDetailLogItem from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
 
 const { ccclass } = _decorator;
-const { FormatUtils } = gc;
+const { FormatUtils, Translator } = gc;
 
 export type BetDetailLogItemType = {
     betDetailsLog: gc.BetHistory.DynamicObject<object>;

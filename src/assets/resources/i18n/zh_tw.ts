@@ -120,12 +120,17 @@ export const languages = {
     "BandarQiuQiu": {
         "game_icon_name": "Bandar Qiu Qiu",
         "game_name": "Bandar Qiu Qiu",
+        "glossary_banker": "莊家",
+        "glossary_club": "梅花",
+        "glossary_diamond": "方塊",
         "glossary_hand_ranking_big": "大",
         "glossary_hand_ranking_ordinary": "普通牌",
-        "glossary_hand_ranking_qiuqiu": "QQ",
+        "glossary_hand_ranking_qiuqiu": "QQ (99)",
         "glossary_hand_ranking_six_devil": "六魔",
         "glossary_hand_ranking_small": "小",
-        "glossary_hand_ranking_twin": "雙"
+        "glossary_hand_ranking_twin": "雙",
+        "glossary_heart": "红心",
+        "glossary_spade": "黑桃"
     }
 };
 
