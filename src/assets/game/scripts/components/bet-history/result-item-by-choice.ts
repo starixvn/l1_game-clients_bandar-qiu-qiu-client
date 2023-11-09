@@ -36,13 +36,17 @@ export class ResultItemByChoice extends Component {
     @property(Node)
     domino4Node: Node = null;
 
-    setData(choice: string, resultByChoice: any, isWin: boolean){
+    @property(Node)
+    bg: Node = null;
+
+    setData(choice: string, resultByChoice: any, isWin: boolean, index: number){
         this.choiceLabel.string = Translator.gameTranslate(`glossary_${choice}`);
         this.setDomino(this.domino1Node, resultByChoice.dominoes[0]);
         this.setDomino(this.domino2Node, resultByChoice.dominoes[1]);
         this.setDomino(this.domino3Node, resultByChoice.dominoes[2]);
         this.setDomino(this.domino4Node, resultByChoice.dominoes[3]);
         this.showHandRanking(resultByChoice, isWin);
+        this.bg.active = index % 2 > 0;
     }
 
     setDomino(dominoNode: Node, dominoValue: string){
