@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "8af271f9-a61b-44d8-9ecd-b72030ac1d50",
+  "uuid": "3c4949ba-ef20-4461-9a64-3b08c1175fa6",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "bet-frame-highlight"
+    "syncNodeName": "player"
   }
 }

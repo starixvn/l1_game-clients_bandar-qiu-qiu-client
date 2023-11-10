@@ -1,7 +1,6 @@
 import gc from "@sg/game-client-base";
-import { Label, _decorator } from "cc";
+import { Label, Node, _decorator } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
-import { WinningResult } from "db://shared-components/shared/common-components/winning-result/scripts/winning-result";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import { AnimationUtils } from "db://shared-components/shared/utils";
 import Observer from "observer";
@@ -26,8 +25,14 @@ export default class Game extends GameComponent {
     @property({ type: Label, override: true, visible: false })
     lblMaxBet: Label = null;
 
-    @property(WinningResult)
-    winningResult: WinningResult = null;
+    @property(Node)
+    bankerDominoCard: Node = null;
+
+    @property(Node)
+    playerDominoCards: Node[] = [];
+
+    @property(Node)
+    nodeDominoCardBox: Node = null;
 
     override namespace = settings.name;
     override containerOptions = containerOptions;

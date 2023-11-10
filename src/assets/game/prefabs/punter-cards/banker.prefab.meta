@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "f6bc4e65-6a4a-4784-bcc2-f88ebe320f66",
+  "uuid": "292c42d9-942e-4819-a717-90e388e3ff80",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "card-container"
+    "syncNodeName": "banker"
   }
 }
