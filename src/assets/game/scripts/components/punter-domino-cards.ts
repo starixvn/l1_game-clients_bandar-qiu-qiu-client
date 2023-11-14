@@ -1,13 +1,17 @@
-import { Component, Node, Vec3, _decorator } from "cc";
+import gc from "@sg/game-client-base";
+import { Node, Vec3, _decorator } from "cc";
 import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
+import { ObserverComponent } from "db://shared-components/shared/common-components/observer-component/scripts/observer-component";
 import { AnimationUtils } from "db://shared-components/shared/utils";
+import Observer from "observer";
 import { DominoCards } from "./domino-cards";
 const { ccclass, property } = _decorator;
 
-const { movingNode, getPositionAtDestNode, playSpine, fadeOut, fadeIn } = AnimationUtils;
-
+const { Configs } = gc;
+const { movingNode, getPositionAtDestNode } = AnimationUtils;
+const { render } = Observer;
 @ccclass("PunterDominoCards")
-export class PunterDominoCards extends Component {
+export class PunterDominoCards extends ObserverComponent {
     @property(DominoCards)
     banker: DominoCards = null;
 
@@ -21,13 +25,16 @@ export class PunterDominoCards extends Component {
 
     private readonly originalDominoCardBankerPosition: Vec3[] = [];
     private readonly originalDominoCardPlayersPosition: Vec3[] = [];
+    private systemType = Configs.SystemConfigs.SG.name;
 
     playSoundDrawDominoCard = () => {};
 
     onLoad(): void {
+        super.onLoad();
         const processDominoCards = (cards: DominoCard[], positionArray: Vec3[]) => {
             cards?.forEach((dominoCard) => {
                 if (dominoCard) {
+                    dominoCard.setBackDominoCardSystem(this?.systemType);
                     this.dominoCards.push(dominoCard);
                     positionArray.push(new Vec3(dominoCard.node.position));
                 }
@@ -94,5 +101,10 @@ export class PunterDominoCards extends Component {
         for (const player of this.players) {
             player.handleOpenDominoCardsWithoutAnim();
         }
+    }
+
+    @render(Configs.SiteConfigs, (store) => store.systemType)
+    setSystemType(systemType: string) {
+        systemType && (this.systemType = systemType);
     }
 }
