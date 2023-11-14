@@ -4669,7 +4669,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 26,
     "md5Tip": null,
-    "_id": "9fcb1V6J1Kq5Fx45euPeOc"
+    "_id": "c27MTdUF1Dgp1nzDe4joL5"
   },
   {
     "__type__": "cc.Node",
@@ -7010,7 +7010,9 @@
     },
     "lblMinBet": null,
     "lblMaxBet": null,
-    "punterCards": null,
+    "punterCards": {
+      "__id__": 105
+    },
     "_id": "a5mppcr9xMh7eLStNdpO8s"
   },
   {
