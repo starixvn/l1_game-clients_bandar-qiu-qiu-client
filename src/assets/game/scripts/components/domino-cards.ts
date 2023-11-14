@@ -14,7 +14,7 @@ export class DominoCards extends Component {
         this.resetDefaultResult();
     }
 
-    setPipsOfSetResult(pipsOfSet: number[] | string) {
+    setPipsOfSetResult(pipsOfSet: number[]) {
         pipsOfSet.length > 0 && (this.lblResult.string = `${pipsOfSet[0]} : ${pipsOfSet[1]}`);
     }
 

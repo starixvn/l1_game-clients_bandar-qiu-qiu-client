@@ -2,12 +2,12 @@
   "ver": "2.0.3",
   "importer": "animation-clip",
   "imported": true,
-  "uuid": "1d74f1b8-cffe-465f-bb08-cdbf719ee916",
+  "uuid": "e836ceb1-d58a-40df-b6ff-3aea5996baf4",
   "files": [
     ".cconb"
   ],
   "subMetas": {},
   "userData": {
-    "name": "black-dragon-highlight"
+    "name": "mid-highlight"
   }
 }

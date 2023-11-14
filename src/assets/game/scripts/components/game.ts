@@ -7,28 +7,21 @@ import { siteConfigs } from "../../../scripts/site-configs";
 import { containerOptions, settings } from "../game-settings";
 import "./../../../resources/i18n";
 import { DominoCards } from "./domino-cards";
-import { handRankingIdMapText } from "./dtf-commons";
+import { IResultInfo, TResult, handRankingIdMapText } from "./dtf-commons";
 import { PunterDominoCards } from "./punter-domino-cards";
 
 startGame(settings.name, containerOptions, siteConfigs);
 
-const { Rounds, Settlements, Translator } = gc;
+const { Translator, Rounds } = gc;
 const { ccclass, property } = _decorator;
 const { observer, render, handle } = Observer;
 
-type Result = {
-    banker: ResultInfo;
-    spade: ResultInfo;
-    heart: ResultInfo;
-    club: ResultInfo;
-    diamond: ResultInfo;
-};
-
-type ResultInfo = {
-    dominoes: number[];
-    handRankingId: number;
-    pipsOfSet: number[];
-};
+enum PunterCardsResultMapping {
+    Spade = 0,
+    Heart,
+    Club,
+    Diamond,
+}
 
 @ccclass
 @observer(settings.name)
@@ -67,7 +60,7 @@ export default class Game extends GameComponent {
 
     async showResult(result: gc.GameServiceMessage.TResult, hasAnimation: boolean) {
         if (result) {
-            this.renderResultDominoCards(result as Result);
+            this.renderResultDominoCards(result as TResult);
 
             if (hasAnimation) {
                 await this.punterCardsComp.openDominoCards();
@@ -77,44 +70,43 @@ export default class Game extends GameComponent {
         }
     }
 
-    private renderResultDominoCards(result: Result) {
+    private renderResultDominoCards(result: TResult) {
         this.renderResultDominoCardsBanker(result.banker);
         this.renderResultDominoCardsPlayers(result);
     }
 
-    renderResultDominoCardsBanker(resultInfo: ResultInfo) {
+    renderResultDominoCardsBanker(resultInfo: IResultInfo) {
         this.handleResultInfo(resultInfo, this.punterCardsComp?.banker);
         this.punterCardsComp?.banker?.dominoCards?.forEach((dominoCard, index) => {
             dominoCard.setDominoCard({ top: +resultInfo?.dominoes[index][0], bottom: +resultInfo?.dominoes[index][1] });
         });
     }
 
-    renderResultDominoCardsPlayers(result: Result) {
+    renderResultDominoCardsPlayers(result: TResult) {
         this.punterCardsComp?.players?.forEach((player, index) => {
-            let resultInfo: ResultInfo;
+            let resultInfo: IResultInfo;
             switch (index) {
-                case 0:
+                case PunterCardsResultMapping.Spade:
                     resultInfo = result?.spade;
                     break;
-                case 1:
+                case PunterCardsResultMapping.Heart:
                     resultInfo = result?.heart;
                     break;
-                case 2:
+                case PunterCardsResultMapping.Club:
                     resultInfo = result?.club;
                     break;
-                case 3:
+                case PunterCardsResultMapping.Diamond:
                     resultInfo = result?.diamond;
                     break;
             }
             this.handleResultInfo(resultInfo, player);
-            player?.setPipsOfSetResult(resultInfo?.pipsOfSet);
             player?.dominoCards?.forEach((dominoCard, cardIndex) => {
                 dominoCard.setDominoCard({ top: +resultInfo?.dominoes[cardIndex][0], bottom: +resultInfo?.dominoes[cardIndex][1] });
             });
         });
     }
 
-    handleResultInfo(resultInfo: ResultInfo, dominoCards: DominoCards) {
+    handleResultInfo(resultInfo: IResultInfo, dominoCards: DominoCards) {
         const handRankingId = resultInfo?.handRankingId || 0;
 
         if (handRankingId > 0) {
@@ -129,7 +121,7 @@ export default class Game extends GameComponent {
         return Translator.gameTranslate(`glossary_hand_ranking_${key}`)?.toUpperCase();
     }
 
-    @render(gc.Rounds.RoundTimeStore, (store) => store.isStartingRound)
+    @render(Rounds.RoundTimeStore, (store) => store.isStartingRound)
     resetResult(isStartingRound: boolean) {
         if (isStartingRound) {
             this.punterCardsComp.banker.resetDefaultResult();

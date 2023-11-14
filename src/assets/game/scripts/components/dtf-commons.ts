@@ -13,3 +13,17 @@ export const handRankingIdMapText = {
     1: "qiuqiu",
     0: "ordinary",
 };
+
+export interface TResult {
+    banker: IResultInfo;
+    spade: IResultInfo;
+    heart: IResultInfo;
+    club: IResultInfo;
+    diamond: IResultInfo;
+}
+
+export interface IResultInfo {
+    dominoes: number[];
+    handRankingId: number;
+    pipsOfSet: number[];
+}
