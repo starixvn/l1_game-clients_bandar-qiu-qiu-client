@@ -41,6 +41,7 @@ export class ResultItemByChoice extends Component {
 
     setData(choice: string, resultByChoice: any, isWin: boolean, activeBacground: boolean) {
         this.choiceLabel.string = Translator.gameTranslate(`glossary_${choice}`);
+
         this.setDomino(this.domino1Node, resultByChoice.dominoes[0]);
         this.setDomino(this.domino2Node, resultByChoice.dominoes[1]);
         this.setDomino(this.domino3Node, resultByChoice.dominoes[2]);
@@ -58,12 +59,11 @@ export class ResultItemByChoice extends Component {
     }
 
     showHandRanking(resultByChoice: any, isWin: boolean) {
-        let txt = "";
-        if (resultByChoice.handRankingId === 0) {
-            txt = `${resultByChoice.pipsOfSet[0]}:${resultByChoice.pipsOfSet[1]}`;
-        } else {
-            txt = Translator.gameTranslate(`glossary_${HandRankingMap[resultByChoice.handRankingId]}`);
-        }
+        const { handRankingId, pipsOfSet } = resultByChoice;
+        let txt =
+            handRankingId === 0
+                ? `${pipsOfSet[0]} : ${pipsOfSet[1]}`
+                : Translator.gameTranslate(`glossary_${HandRankingMap[handRankingId]}`);
 
         this.handRankingLabel.string = txt;
         this.setHighlight(isWin);
