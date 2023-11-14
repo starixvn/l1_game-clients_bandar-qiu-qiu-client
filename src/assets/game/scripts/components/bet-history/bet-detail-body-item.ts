@@ -1,8 +1,6 @@
 import { _decorator } from "cc";
 import gc from "@sg/game-client-base";
-import {
-    GameRoundBetDetailsLog,
-} from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
+import { GameRoundBetDetailsLog } from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
 import BetDetailLogItem from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
 
 const { ccclass } = _decorator;
@@ -18,7 +16,7 @@ export type BetDetailLogItemType = {
     fractionalOddsFormat: boolean;
 };
 
-export const handRankingIdMap = {    
+export const handRankingIdMap = {
     5: "sixDevil",
     4: "twin",
     3: "small",
@@ -28,58 +26,58 @@ export const handRankingIdMap = {
 };
 
 export const resultStatus = {
-    "Lose": 0,
-    "Win": 1,
-    "Tie": 2
-}
+    Lose: 0,
+    Win: 1,
+    Tie: 2,
+};
 
 @ccclass
 export default class BetDetailBodyItem extends BetDetailLogItem {
     setData(data: BetDetailLogItemType) {
+        return;
+
         const { betDetailsLog } = data;
         const { amount, choice } = betDetailsLog as GameRoundBetDetailsLog & gc.BetHistory.DynamicObject<object>;
         super.setData(data);
 
         const winningAmount = amount * this.getEffectiveOdds(choice, data);
-        this.lblWin.string = FormatUtils.numberWithCommas(winningAmount, 2);        
+        this.lblWin.string = FormatUtils.numberWithCommas(winningAmount, 2);
         this.lblOdds.string = this.getDisplayOdd(choice, data);
-        const isHightLight = this.checkWinning(choice, data, resultStatus.Win) || this.checkWinning(choice, data, resultStatus.Tie);                
+        const isHightLight = this.checkWinning(choice, data, resultStatus.Win) || this.checkWinning(choice, data, resultStatus.Tie);
         this.setHighlightTicketDetail(isHightLight);
     }
 
-    getEffectiveOdds(choice: string, data: BetDetailLogItemType){
+    getEffectiveOdds(choice: string, data: BetDetailLogItemType) {
         const winningOdd = this.getWinningOdd(choice, data);
-        if(data.freeBet){
+        if (data.freeBet) {
             return this.checkWinning(choice, data, resultStatus.Win) ? winningOdd - 1 : 0;
-        }
-        else{
+        } else {
             return winningOdd;
         }
     }
 
-    getDisplayOdd(choice: string, data: BetDetailLogItemType){
+    getDisplayOdd(choice: string, data: BetDetailLogItemType) {
         const winningOdd = this.getWinningOdd(choice, data);
-        if(this.checkWinning(choice, data, resultStatus.Win)){
+        if (this.checkWinning(choice, data, resultStatus.Win)) {
             return (data.fractionalOddsFormat ? FormatUtils.numberWithCommas(winningOdd - 1, 2) : winningOdd).toString();
-        }
-        else{
+        } else {
             return "-";
         }
     }
 
-    getWinningOdd(choice: string, data: BetDetailLogItemType){
+    getWinningOdd(choice: string, data: BetDetailLogItemType) {
         let winningOdd = 0;
-        if(this.checkWinning(choice, data, resultStatus.Win)){
+        if (this.checkWinning(choice, data, resultStatus.Win)) {
             const oddName = handRankingIdMap[data.result[choice]["handRankingId"]];
             winningOdd = data.odds[oddName];
-        }else if(this.checkWinning(choice, data, resultStatus.Tie)){
+        } else if (this.checkWinning(choice, data, resultStatus.Tie)) {
             winningOdd = 1;
         }
 
         return winningOdd;
     }
 
-    checkWinning(choice: string, data: BetDetailLogItemType, status: number): boolean{
+    checkWinning(choice: string, data: BetDetailLogItemType, status: number): boolean {
         return data.settlementResult[choice] === status;
     }
 }
