@@ -1,14 +1,15 @@
-export enum Choice {
-    Dragon = 0,
-    Tiger,
+export enum BetChoice {
+    Spade = "spade",
+    Heart = "heart",
+    Club = "club",
+    Diamond = "diamond",
 }
 
-export enum BetChoice {
-    Dragon = "dragon",
-    Tiger = "tiger",
-    Tie = "tie",
-    Red_Dragon = "redDragon",
-    Black_Dragon = "blackDragon",
-    Red_Tiger = "redTiger",
-    Black_Tiger = "blackTiger",
-}
+export const handRankingIdMapText = {
+    5: "six_devil",
+    4: "twin",
+    3: "small",
+    2: "big",
+    1: "qiuqiu",
+    0: "ordinary",
+};

@@ -14,8 +14,12 @@ export class DominoCards extends Component {
         this.resetDefaultResult();
     }
 
-    setResult(pipsOfSet: number[]) {
+    setPipsOfSetResult(pipsOfSet: number[] | string) {
         pipsOfSet.length > 0 && (this.lblResult.string = `${pipsOfSet[0]} : ${pipsOfSet[1]}`);
+    }
+
+    setHandRankingResult(text: string) {
+        this.lblResult.string = text;
     }
 
     resetDefaultResult() {

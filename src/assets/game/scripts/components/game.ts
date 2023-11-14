@@ -6,10 +6,13 @@ import Observer from "observer";
 import { siteConfigs } from "../../../scripts/site-configs";
 import { containerOptions, settings } from "../game-settings";
 import "./../../../resources/i18n";
+import { DominoCards } from "./domino-cards";
+import { handRankingIdMapText } from "./dtf-commons";
 import { PunterDominoCards } from "./punter-domino-cards";
 
 startGame(settings.name, containerOptions, siteConfigs);
 
+const { Rounds, Settlements, Translator } = gc;
 const { ccclass, property } = _decorator;
 const { observer, render, handle } = Observer;
 
@@ -80,7 +83,7 @@ export default class Game extends GameComponent {
     }
 
     renderResultDominoCardsBanker(resultInfo: ResultInfo) {
-        this.punterCardsComp?.banker?.setResult(resultInfo?.pipsOfSet);
+        this.handleResultInfo(resultInfo, this.punterCardsComp?.banker);
         this.punterCardsComp?.banker?.dominoCards?.forEach((dominoCard, index) => {
             dominoCard.setDominoCard({ top: +resultInfo?.dominoes[index][0], bottom: +resultInfo?.dominoes[index][1] });
         });
@@ -103,11 +106,27 @@ export default class Game extends GameComponent {
                     resultInfo = result?.diamond;
                     break;
             }
-            player?.setResult(resultInfo?.pipsOfSet);
+            this.handleResultInfo(resultInfo, player);
+            player?.setPipsOfSetResult(resultInfo?.pipsOfSet);
             player?.dominoCards?.forEach((dominoCard) => {
                 dominoCard.setDominoCard({ top: +resultInfo?.dominoes[index][0], bottom: +resultInfo?.dominoes[index][1] });
             });
         });
+    }
+
+    handleResultInfo(resultInfo: ResultInfo, dominoCards: DominoCards) {
+        const handRankingId = resultInfo?.handRankingId || 0;
+
+        if (handRankingId > 0) {
+            const translatedKey = this.getTranslateKey(handRankingIdMapText[resultInfo.handRankingId]);
+            dominoCards.setHandRankingResult(translatedKey);
+        } else {
+            dominoCards.setPipsOfSetResult(resultInfo?.pipsOfSet);
+        }
+    }
+
+    getTranslateKey(key: string) {
+        return Translator.gameTranslate(`glossary_hand_ranking_${key}`)?.toUpperCase();
     }
 
     @render(gc.Rounds.RoundTimeStore, (store) => store.isStartingRound)
