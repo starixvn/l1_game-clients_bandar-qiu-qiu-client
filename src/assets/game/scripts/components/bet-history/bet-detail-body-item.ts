@@ -34,8 +34,6 @@ export const resultStatus = {
 @ccclass
 export default class BetDetailBodyItem extends BetDetailLogItem {
     setData(data: BetDetailLogItemType) {
-        return;
-
         const { betDetailsLog } = data;
         const { amount, choice } = betDetailsLog as GameRoundBetDetailsLog & gc.BetHistory.DynamicObject<object>;
         super.setData(data);
