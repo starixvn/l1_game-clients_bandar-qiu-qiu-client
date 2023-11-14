@@ -4669,7 +4669,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 26,
     "md5Tip": null,
-    "_id": "c27MTdUF1Dgp1nzDe4joL5"
+    "_id": "6aLV+KmPlHC7aN3ll6eosq"
   },
   {
     "__type__": "cc.Node",
@@ -6292,7 +6292,7 @@
       "resultPrefab"
     ],
     "value": {
-      "__uuid__": "c7d0e2b4-f218-4540-9681-3b5effbbb251",
+      "__uuid__": "4ffe609f-b355-4ec6-ada3-8390f6de0d5f",
       "__expectedType__": "cc.Prefab"
     }
   },
