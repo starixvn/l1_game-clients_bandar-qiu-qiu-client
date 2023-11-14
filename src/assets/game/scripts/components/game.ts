@@ -108,8 +108,8 @@ export default class Game extends GameComponent {
             }
             this.handleResultInfo(resultInfo, player);
             player?.setPipsOfSetResult(resultInfo?.pipsOfSet);
-            player?.dominoCards?.forEach((dominoCard) => {
-                dominoCard.setDominoCard({ top: +resultInfo?.dominoes[index][0], bottom: +resultInfo?.dominoes[index][1] });
+            player?.dominoCards?.forEach((dominoCard, cardIndex) => {
+                dominoCard.setDominoCard({ top: +resultInfo?.dominoes[cardIndex][0], bottom: +resultInfo?.dominoes[cardIndex][1] });
             });
         });
     }
