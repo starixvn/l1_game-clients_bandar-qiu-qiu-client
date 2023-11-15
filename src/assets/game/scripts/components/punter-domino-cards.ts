@@ -28,7 +28,7 @@ export class PunterDominoCards extends ObserverComponent {
 
     dominoCards: DominoCard[] = [];
 
-    private originalDominoCardBankerPosition: Vec3[] = [];
+    private readonly originalDominoCardBankerPosition: Vec3[] = [];
     private originalDominoCardPlayersPosition: OriginalDominoCardPlayersPosition = {};
     private systemType = Configs.SystemConfigs.SG.name;
 

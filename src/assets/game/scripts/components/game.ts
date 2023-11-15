@@ -12,7 +12,7 @@ import { PunterDominoCards } from "./punter-domino-cards";
 
 startGame(settings.name, containerOptions, siteConfigs);
 
-const { Translator, Rounds } = gc;
+const { Translator, Rounds, RoundHistories } = gc;
 const { ccclass, property } = _decorator;
 const { observer, render } = Observer;
 
@@ -37,7 +37,7 @@ export default class Game extends GameComponent {
 
     override namespace = settings.name;
     override containerOptions = containerOptions;
-    punterCardsComp: PunterDominoCards = null;
+    protected punterCardsComp: PunterDominoCards = null;
 
     onLoad() {
         super.onLoad();
@@ -46,6 +46,15 @@ export default class Game extends GameComponent {
             this.punterCardsComp.playSoundDrawDominoCard = () => {
                 return this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_CARD);
             };
+        }
+    }
+
+    @render(RoundHistories.RoundHistoryStore, (store) => store.joinGameHistory)
+    handleJoinGameAndShowResult(joinGameHistory: gc.RoundHistories.IJoinGameHistory) {
+        const { roundHistory, isShow } = joinGameHistory ?? {};
+        if (roundHistory && isShow) {
+            this.showResult(roundHistory?.result, false);
+            this.finishShowResult(roundHistory?.result, roundHistory?.settlementResult);
         }
     }
 
