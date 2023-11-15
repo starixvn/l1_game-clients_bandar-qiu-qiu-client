@@ -159,7 +159,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -455.911,
+      "x": -479.64,
       "y": 159.709,
       "z": 0
     },
@@ -221,7 +221,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -43.6705322265625,
+      "x": -31.1705322265625,
       "y": 0,
       "z": 0
     },
@@ -357,7 +357,7 @@
     },
     "key": "Common.round",
     "format": 3,
-    "suffix": " :",
+    "suffix": ":",
     "_id": ""
   },
   {
@@ -448,7 +448,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 43.6705322265625,
+      "x": 31.1705322265625,
       "y": 0,
       "z": 0
     },
@@ -693,7 +693,7 @@
     "_paddingRight": 0,
     "_paddingTop": 0,
     "_paddingBottom": 0,
-    "_spacingX": 50,
+    "_spacingX": 0,
     "_spacingY": 0,
     "_verticalDirection": 1,
     "_horizontalDirection": 0,
