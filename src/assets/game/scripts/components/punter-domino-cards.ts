@@ -10,6 +10,11 @@ const { ccclass, property } = _decorator;
 const { Configs } = gc;
 const { movingNode, getPositionAtDestNode } = AnimationUtils;
 const { render } = Observer;
+
+type OriginalDominoCardPlayersPosition = {
+    [playerIndex: number]: Vec3[];
+};
+
 @ccclass("PunterDominoCards")
 export class PunterDominoCards extends ObserverComponent {
     @property(DominoCards)
@@ -23,29 +28,54 @@ export class PunterDominoCards extends ObserverComponent {
 
     dominoCards: DominoCard[] = [];
 
-    private readonly originalDominoCardBankerPosition: Vec3[] = [];
-    private readonly originalDominoCardPlayersPosition: Vec3[] = [];
+    private originalDominoCardBankerPosition: Vec3[] = [];
+    private originalDominoCardPlayersPosition: OriginalDominoCardPlayersPosition = {};
     private systemType = Configs.SystemConfigs.SG.name;
 
     playSoundDrawDominoCard = () => {};
 
     onLoad(): void {
         super.onLoad();
-        const processDominoCards = (cards: DominoCard[], positionArray: Vec3[]) => {
-            cards?.forEach((dominoCard) => {
+
+        this.initializeOriginalDominoCardPlayersPosition();
+        this.onLoadBankerDominoCards();
+        this.onLoadPlayersDominoCards();
+    }
+
+    private initializeOriginalDominoCardPlayersPosition(): void {
+        const numberOfPlayers = this.players.length || 0;
+
+        for (let playerIndex = 0; playerIndex < numberOfPlayers; playerIndex++) {
+            this.originalDominoCardPlayersPosition[playerIndex] = [];
+        }
+    }
+
+    private processDominoCardArray(cards: DominoCard[], positionArray: Vec3[]): void {
+        cards?.forEach((dominoCard) => {
+            if (dominoCard) {
+                this.processSingleDominoCard(dominoCard, positionArray);
+            }
+        });
+    }
+
+    private onLoadBankerDominoCards(): void {
+        this.processDominoCardArray(this.banker?.dominoCards, this.originalDominoCardBankerPosition);
+    }
+
+    private onLoadPlayersDominoCards(): void {
+        this.players.forEach((player, playerIndex) => {
+            player?.dominoCards.forEach((dominoCard) => {
                 if (dominoCard) {
-                    dominoCard.setBackDominoCardSystem(this?.systemType);
-                    this.dominoCards.push(dominoCard);
-                    positionArray.push(new Vec3(dominoCard.node.position));
+                    this.processSingleDominoCard(dominoCard, this.originalDominoCardPlayersPosition[playerIndex]);
                 }
             });
-        };
-
-        processDominoCards(this.banker?.dominoCards, this.originalDominoCardBankerPosition);
-
-        this.players.forEach((player) => {
-            processDominoCards(player?.dominoCards, this.originalDominoCardPlayersPosition);
         });
+    }
+
+    private processSingleDominoCard(dominoCard: DominoCard, positionArray: Vec3[]): void {
+        dominoCard.setBackDominoCardSystem(this?.systemType);
+        this.dominoCards.push(dominoCard);
+        positionArray.push(new Vec3(dominoCard.node.position));
     }
 
     hideDominoCards() {
@@ -55,8 +85,11 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async drawDominoCardsPunter() {
+        console.time("-------drawDomino----------------");
         await this.drawDominoCardsBanker();
         await this.drawDominoCardsPlayers();
+
+        console.timeEnd("-------drawDomino----------------");
     }
 
     async drawDominoCardsBanker() {
@@ -65,15 +98,15 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async drawDominoCardsPlayers() {
-        for (const player of this.players) {
+        for (const [index, player] of this.players.entries()) {
             const cards = player.dominoCards;
-            await this.drawDominoCards(cards, this.originalDominoCardPlayersPosition);
+
+            await this.drawDominoCards(cards, this.originalDominoCardPlayersPosition[index]);
         }
     }
 
     async drawDominoCards(cards: DominoCard[], originalPositions: Vec3[]): Promise<void> {
-        const pullDuration = 0.1;
-        const drawDuration = 0.4;
+        const drawDuration = 0.18;
 
         for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
@@ -82,7 +115,6 @@ export class PunterDominoCards extends ObserverComponent {
             const destPosition = getPositionAtDestNode(card.node, this.nodeDominoCardBox);
             card.node.position = destPosition;
 
-            await card.pullDominoCard(pullDuration);
             movingNode(card.node, drawDuration, originalPositions[i]);
             this.playSoundDrawDominoCard();
             await card.drawDominoCard(drawDuration);

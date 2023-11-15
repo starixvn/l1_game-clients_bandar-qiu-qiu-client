@@ -27,3 +27,15 @@ export interface IResultInfo {
     handRankingId: number;
     pipsOfSet: number[];
 }
+
+export const resultStatus = {
+    Lose: 0,
+    Win: 1,
+    Tie: 2,
+};
+
+export const resultStatusColorMapping = {
+    [resultStatus.Lose]: "#bfbfbf",
+    [resultStatus.Win]: "#fffc00",
+    [resultStatus.Tie]: "#00f11c",
+};

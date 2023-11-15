@@ -7,14 +7,14 @@ import { siteConfigs } from "../../../scripts/site-configs";
 import { containerOptions, settings } from "../game-settings";
 import "./../../../resources/i18n";
 import { DominoCards } from "./domino-cards";
-import { IResultInfo, TResult, handRankingIdMapText } from "./dtf-commons";
+import { IResultInfo, TResult, handRankingIdMapText, resultStatusColorMapping } from "./game-commons";
 import { PunterDominoCards } from "./punter-domino-cards";
 
 startGame(settings.name, containerOptions, siteConfigs);
 
 const { Translator, Rounds } = gc;
 const { ccclass, property } = _decorator;
-const { observer, render, handle } = Observer;
+const { observer, render } = Observer;
 
 enum PunterCardsResultMapping {
     Spade = 0,
@@ -49,6 +49,26 @@ export default class Game extends GameComponent {
         }
     }
 
+    async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
+        if (settlementResult && result) {
+            this.handleResultInfo(result?.banker, this.punterCardsComp?.banker);
+            this.punterCardsComp?.players?.forEach((player, index) => {
+                const resultInfo = this.getResultInfoPlayerByIndex(index, result as TResult);
+                const color = this.getColorResultInfoPlayer(settlementResult, index);
+                resultInfo && this.handleResultInfo(resultInfo, player, color);
+            });
+        }
+    }
+
+    getColorResultInfoPlayer(settlementResult: gc.GameServiceMessage.TSettlementResult, playerIndex) {
+        const suitsOrder = ["spade", "heart", "club", "diamond"];
+        const valueFollowSuit: number[] = suitsOrder.map((suit) => {
+            return +settlementResult[suit];
+        });
+
+        return resultStatusColorMapping[valueFollowSuit[playerIndex]] || resultStatusColorMapping[0];
+    }
+
     async handleStartRound(isStartRound: boolean) {
         if (isStartRound && this.punterCardsComp) {
             super.handleStartRound(isStartRound);
@@ -76,7 +96,6 @@ export default class Game extends GameComponent {
     }
 
     renderResultDominoCardsBanker(resultInfo: IResultInfo) {
-        this.handleResultInfo(resultInfo, this.punterCardsComp?.banker);
         this.punterCardsComp?.banker?.dominoCards?.forEach((dominoCard, index) => {
             dominoCard.setDominoCard({ top: +resultInfo?.dominoes[index][0], bottom: +resultInfo?.dominoes[index][1] });
         });
@@ -84,37 +103,39 @@ export default class Game extends GameComponent {
 
     renderResultDominoCardsPlayers(result: TResult) {
         this.punterCardsComp?.players?.forEach((player, index) => {
-            let resultInfo: IResultInfo;
-            switch (index) {
-                case PunterCardsResultMapping.Spade:
-                    resultInfo = result?.spade;
-                    break;
-                case PunterCardsResultMapping.Heart:
-                    resultInfo = result?.heart;
-                    break;
-                case PunterCardsResultMapping.Club:
-                    resultInfo = result?.club;
-                    break;
-                case PunterCardsResultMapping.Diamond:
-                    resultInfo = result?.diamond;
-                    break;
-            }
-            this.handleResultInfo(resultInfo, player);
-            player?.dominoCards?.forEach((dominoCard, cardIndex) => {
-                dominoCard.setDominoCard({ top: +resultInfo?.dominoes[cardIndex][0], bottom: +resultInfo?.dominoes[cardIndex][1] });
-            });
+            const resultInfo = this.getResultInfoPlayerByIndex(index, result);
+            resultInfo &&
+                player?.dominoCards?.forEach((dominoCard, cardIndex) => {
+                    dominoCard.setDominoCard({ top: +resultInfo?.dominoes[cardIndex][0], bottom: +resultInfo?.dominoes[cardIndex][1] });
+                });
         });
     }
 
-    handleResultInfo(resultInfo: IResultInfo, dominoCards: DominoCards) {
-        const handRankingId = resultInfo?.handRankingId || 0;
+    getResultInfoPlayerByIndex(index: number, result: TResult): IResultInfo | undefined {
+        switch (index) {
+            case PunterCardsResultMapping.Spade:
+                return result?.spade;
+            case PunterCardsResultMapping.Heart:
+                return result?.heart;
+            case PunterCardsResultMapping.Club:
+                return result?.club;
+            case PunterCardsResultMapping.Diamond:
+                return result?.diamond;
+            default:
+                return undefined;
+        }
+    }
 
+    handleResultInfo(resultInfo: IResultInfo, dominoCards: DominoCards, color?: string) {
+        const handRankingId = resultInfo?.handRankingId || 0;
         if (handRankingId > 0) {
             const translatedKey = this.getTranslateKey(handRankingIdMapText[resultInfo.handRankingId]);
             dominoCards.setHandRankingResult(translatedKey);
         } else {
             dominoCards.setPipsOfSetResult(resultInfo?.pipsOfSet);
         }
+
+        color && dominoCards.setColorResult(color);
     }
 
     getTranslateKey(key: string) {
@@ -127,6 +148,7 @@ export default class Game extends GameComponent {
             this.punterCardsComp.banker.resetDefaultResult();
             this.punterCardsComp?.players?.forEach((player) => {
                 player?.resetDefaultResult();
+                player?.setColorResult(resultStatusColorMapping[0]);
             });
         }
     }

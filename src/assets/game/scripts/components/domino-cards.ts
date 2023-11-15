@@ -1,4 +1,4 @@
-import { _decorator, Component, Label } from "cc";
+import { Color, Component, Label, _decorator } from "cc";
 import { DominoCard } from "../../../../extensions/shared-components/assets/game/domino/scripts/domino-card";
 const { ccclass, property } = _decorator;
 
@@ -15,7 +15,9 @@ export class DominoCards extends Component {
     }
 
     setPipsOfSetResult(pipsOfSet: number[]) {
-        pipsOfSet.length > 0 && (this.lblResult.string = `${pipsOfSet[0]} : ${pipsOfSet[1]}`);
+        if (pipsOfSet.length > 0) {
+            this.lblResult.string = `${pipsOfSet[0]} : ${pipsOfSet[1]}`;
+        }
     }
 
     setHandRankingResult(text: string) {
@@ -27,14 +29,16 @@ export class DominoCards extends Component {
     }
 
     async handleOpenDominoCards() {
-        for (const dominoCard of this.dominoCards) {
-            await dominoCard.openDominoCard();
-        }
+        await Promise.all(this.dominoCards.map((dominoCard) => dominoCard.openDominoCard()));
     }
 
     handleOpenDominoCardsWithoutAnim() {
         this.dominoCards.forEach((dominoCard) => {
             dominoCard.faceUp();
         });
+    }
+
+    setColorResult(color: string) {
+        color && (this.lblResult.color = new Color(color));
     }
 }

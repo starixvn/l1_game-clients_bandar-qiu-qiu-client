@@ -1,7 +1,9 @@
-import { _decorator } from "cc";
 import gc from "@sg/game-client-base";
-import { GameRoundBetDetailsLog } from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
-import BetDetailLogItem from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
+import { _decorator } from "cc";
+import BetDetailLogItem, {
+    GameRoundBetDetailsLog,
+} from "db://shared-components/game/bet-history/scripts/components/bet-detail/bet-detail-log-item";
+import { resultStatus } from "../game-commons";
 
 const { ccclass } = _decorator;
 const { FormatUtils } = gc;
@@ -23,12 +25,6 @@ export const handRankingIdMap = {
     2: "big",
     1: "qiuQiu",
     0: "ordinaryCard",
-};
-
-export const resultStatus = {
-    Lose: 0,
-    Win: 1,
-    Tie: 2,
 };
 
 @ccclass
