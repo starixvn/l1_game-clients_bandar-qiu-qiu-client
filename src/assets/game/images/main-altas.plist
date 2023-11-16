@@ -45,7 +45,7 @@
                 <key>spriteSourceSize</key>
                 <string>{80,80}</string>
                 <key>textureRect</key>
-                <string>{{277,198},{80,80}}</string>
+                <string>{{89,345},{80,80}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -60,11 +60,11 @@
                 <key>spriteSourceSize</key>
                 <string>{80,80}</string>
                 <key>textureRect</key>
-                <string>{{184,263},{80,80}}</string>
+                <string>{{3,427},{80,80}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>highlight-border-mid.png</key>
+            <key>highlight-border-mid-anim.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -79,7 +79,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>hightlight-border-left-right.png</key>
+            <key>highlight-border-mid-static.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -91,6 +91,36 @@
                 <string>{84,84}</string>
                 <key>textureRect</key>
                 <string>{{3,265},{84,84}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hightlight-border-left-right-anim.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{84,84}</string>
+                <key>spriteSourceSize</key>
+                <string>{84,84}</string>
+                <key>textureRect</key>
+                <string>{{277,198},{84,84}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>hightlight-border-left-right-static.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{84,84}</string>
+                <key>spriteSourceSize</key>
+                <string>{84,84}</string>
+                <key>textureRect</key>
+                <string>{{184,263},{84,84}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -378,7 +408,7 @@
             <key>size</key>
             <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:5b87a7a91677889cc3a90c0663418413:d0c375130f04d5868a7f1a30990d77e7:c267e8d10c0bc09dc57664e81b0ef2af$</string>
+            <string>$TexturePacker:SmartUpdate:ed9f06ecf30d932dce90f7fd8ce4d54f:37e6f69e98304d0734aff575d53445f1:c267e8d10c0bc09dc57664e81b0ef2af$</string>
             <key>textureFileName</key>
             <string>main-altas.png</string>
         </dict>
