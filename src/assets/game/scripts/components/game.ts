@@ -54,13 +54,19 @@ export default class Game extends GameComponent {
         const { roundHistory, isShow } = joinGameHistory ?? {};
         if (roundHistory && isShow) {
             this.showResult(roundHistory?.result, false);
-            this.finishShowResult(roundHistory?.result, roundHistory?.settlementResult);
+            this.handleResults(roundHistory?.result, roundHistory?.settlementResult);
         }
     }
 
     async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
+        this.handleResults(result, settlementResult);
+        super.finishShowResult(result, settlementResult);
+    }
+
+    handleResults(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
         if (settlementResult && result) {
             this.handleResultInfo(result?.banker, this.punterCardsComp?.banker);
+
             this.punterCardsComp?.players?.forEach((player, index) => {
                 const resultInfo = this.getResultInfoPlayerByIndex(index, result as TResult);
                 const color = this.getColorResultInfoPlayer(settlementResult, index);

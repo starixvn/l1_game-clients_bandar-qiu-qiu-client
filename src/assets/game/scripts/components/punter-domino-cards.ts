@@ -85,11 +85,8 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async drawDominoCardsPunter() {
-        console.time("-------drawDomino----------------");
         await this.drawDominoCardsBanker();
         await this.drawDominoCardsPlayers();
-
-        console.timeEnd("-------drawDomino----------------");
     }
 
     async drawDominoCardsBanker() {
