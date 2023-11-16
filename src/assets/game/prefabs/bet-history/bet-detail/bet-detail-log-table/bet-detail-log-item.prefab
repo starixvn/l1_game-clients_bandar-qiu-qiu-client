@@ -559,7 +559,7 @@
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 0,
-    "_cacheMode": 0,
+    "_cacheMode": 2,
     "_id": ""
   },
   {
@@ -599,8 +599,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 59.8388671875,
-      "height": 55.44
+      "width": 61.17,
+      "height": 44
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
