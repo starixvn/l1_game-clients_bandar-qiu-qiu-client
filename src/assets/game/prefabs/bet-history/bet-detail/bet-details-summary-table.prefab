@@ -270,7 +270,7 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Round :",
+    "_string": "Round:",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
     "_actualFontSize": 19,
@@ -329,7 +329,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 73.46728515625,
+      "width": 68.53173828125,
       "height": 55.44
     },
     "_anchorPoint": {
@@ -412,8 +412,6 @@
       "__id__": 0
     },
     "fileId": "1akIK07eNGjpmpsALmvdPX",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
