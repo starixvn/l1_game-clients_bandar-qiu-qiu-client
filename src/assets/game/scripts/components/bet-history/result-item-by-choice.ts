@@ -1,7 +1,9 @@
 import { _decorator, Component, Node, Label, Prefab, instantiate, Color } from "cc";
-const { ccclass, property } = _decorator;
 import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 import gc from "@sg/game-client-base";
+
+const { ccclass, property } = _decorator;
+
 const { Translator } = gc;
 
 const HandRankingMap = {
