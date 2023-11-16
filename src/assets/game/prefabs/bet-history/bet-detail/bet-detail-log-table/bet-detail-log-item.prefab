@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "bet-detail-item",
+    "_name": "bet-detail-log-item",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_native": "",
@@ -13,7 +13,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bet-detail-item",
+    "_name": "bet-detail-log-item",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
