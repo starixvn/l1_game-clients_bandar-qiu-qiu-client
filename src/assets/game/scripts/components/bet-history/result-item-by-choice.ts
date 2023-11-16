@@ -1,6 +1,6 @@
 import { _decorator, Component, Node, Label, Prefab, instantiate, Color } from "cc";
 const { ccclass, property } = _decorator;
-import { DominoCard, DominoCardModel } from "db://shared-components/game/domino/scripts/domino-card";
+import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 import gc from "@sg/game-client-base";
 const { Translator } = gc;
 
@@ -60,12 +60,12 @@ export class ResultItemByChoice extends Component {
 
     showHandRanking(resultByChoice: any, isWin: boolean) {
         const { handRankingId, pipsOfSet } = resultByChoice;
-        let txt =
+
+        this.handRankingLabel.string =
             handRankingId === 0
                 ? `${pipsOfSet[0]} : ${pipsOfSet[1]}`
                 : Translator.gameTranslate(`glossary_${HandRankingMap[handRankingId]}`);
 
-        this.handRankingLabel.string = txt;
         this.setHighlight(isWin);
     }
 

@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { _decorator, Prefab, Layout, instantiate, Node } from "cc";
+import { _decorator, Prefab, instantiate, Node } from "cc";
 import { BaseResultBodyItem } from "db://shared-components/game/bet-history/scripts/components/bet-history-body-item";
 import { ResultItemByChoice } from "./result-item-by-choice";
 
