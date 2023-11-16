@@ -1899,8 +1899,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 13.42,
-      "height": 24
+      "width": 13.41796875,
+      "height": 30.240000000000002
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1954,7 +1954,7 @@
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 2,
-    "_cacheMode": 2,
+    "_cacheMode": 0,
     "_id": ""
   },
   {
@@ -1989,8 +1989,6 @@
       "__id__": 0
     },
     "fileId": "d7EYkwlK9A/LoiF4PvYYgF",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -2060,8 +2058,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 13.42,
-      "height": 24
+      "width": 13.41796875,
+      "height": 30.240000000000002
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2115,7 +2113,7 @@
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 2,
-    "_cacheMode": 2,
+    "_cacheMode": 0,
     "_id": ""
   },
   {
@@ -2150,8 +2148,6 @@
       "__id__": 0
     },
     "fileId": "bdQp/ykDFLjLkdro+HAM1m",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -2221,8 +2217,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 13.42,
-      "height": 24
+      "width": 13.41796875,
+      "height": 30.240000000000002
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2276,7 +2272,7 @@
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 2,
-    "_cacheMode": 2,
+    "_cacheMode": 0,
     "_id": ""
   },
   {
@@ -2311,8 +2307,6 @@
       "__id__": 0
     },
     "fileId": "58vicde9lKIbq/ufDJbAdz",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -2382,8 +2376,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 13.42,
-      "height": 24
+      "width": 13.41796875,
+      "height": 30.240000000000002
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2437,7 +2431,7 @@
     "_isBold": false,
     "_isUnderline": false,
     "_underlineHeight": 2,
-    "_cacheMode": 2,
+    "_cacheMode": 0,
     "_id": ""
   },
   {
@@ -2472,8 +2466,6 @@
       "__id__": 0
     },
     "fileId": "32e/vZQfFOZK/3HK0f/EN5",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {

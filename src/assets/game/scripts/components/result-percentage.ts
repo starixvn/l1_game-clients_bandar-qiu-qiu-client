@@ -8,7 +8,7 @@ export class ResultPercentage extends BaseResultPercentage {
         return roundHistory.reduce((count: any, history) => {
             originalChoices.forEach((choice) => {
                 count[choice] = count[choice] ?? 0;
-                if (history.settlementResult[choice] === 1) {
+                if (history?.settlementResult?.[choice] === 1) {
                     count[choice] = count[choice] + 1;
                 }
             });

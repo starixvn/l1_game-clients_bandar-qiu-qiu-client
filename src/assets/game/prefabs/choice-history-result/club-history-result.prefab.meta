@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "c8896ba2-060f-43a1-b69f-29f0422f1aad",
+  "uuid": "2cad3c3b-455e-4cb1-9d5c-634a4ef537b2",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "custom-light-tooltip"
+    "syncNodeName": "club-history-result"
   }
 }

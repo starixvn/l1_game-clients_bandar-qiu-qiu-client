@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "f9b227ce-441b-4ef2-8a2c-6f566e2993a8",
+  "uuid": "e0e9107c-9de0-4c8f-97c0-32f1a4cddf78",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "custom-led-light-item"
+    "syncNodeName": "diamond-history-result"
   }
 }
