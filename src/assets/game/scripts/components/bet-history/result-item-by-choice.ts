@@ -1,6 +1,6 @@
-import { _decorator, Component, Node, Label, Prefab, instantiate, Color } from "cc";
-import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 import gc from "@sg/game-client-base";
+import { Color, Component, Label, Node, Prefab, _decorator, instantiate } from "cc";
+import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 
 const { ccclass, property } = _decorator;
 
@@ -57,7 +57,7 @@ export class ResultItemByChoice extends Component {
         dominoNode.addChild(domino);
         const dominoCard = domino.getComponent(DominoCard);
         dominoCard.setDominoCard({ top: +dominoValue[0], bottom: +dominoValue[1] });
-        dominoCard.openDominoCard();
+        dominoCard.faceUp();
     }
 
     showHandRanking(resultByChoice: any, isWin: boolean) {

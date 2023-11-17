@@ -29,7 +29,7 @@ export class DominoCards extends Component {
     }
 
     async handleOpenDominoCards() {
-        await Promise.all(this.dominoCards.map((dominoCard) => dominoCard.openDominoCard()));
+        await Promise.all(this.dominoCards.map((dominoCard) => dominoCard.openDominoCardAnim()));
     }
 
     handleOpenDominoCardsWithoutAnim() {
