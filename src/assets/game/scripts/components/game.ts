@@ -42,11 +42,6 @@ export default class Game extends GameComponent {
     onLoad() {
         super.onLoad();
         this.punterCardsComp = this.punterCards?.getComponent(PunterDominoCards);
-        if (this.punterCardsComp) {
-            this.punterCardsComp.playSoundDrawDominoCard = () => {
-                return this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_CARD);
-            };
-        }
     }
 
     @render(RoundHistories.RoundHistoryStore, (store) => store.joinGameHistory)

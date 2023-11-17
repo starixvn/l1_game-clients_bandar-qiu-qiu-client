@@ -9,7 +9,7 @@ const { ccclass, property } = _decorator;
 
 const { Configs } = gc;
 const { movingNode, getPositionAtDestNode } = AnimationUtils;
-const { render } = Observer;
+const { render, handle } = Observer;
 
 type OriginalDominoCardPlayersPosition = {
     [playerIndex: number]: Vec3[];
@@ -31,8 +31,6 @@ export class PunterDominoCards extends ObserverComponent {
     private readonly originalDominoCardBankerPosition: Vec3[] = [];
     private originalDominoCardPlayersPosition: OriginalDominoCardPlayersPosition = {};
     private systemType = Configs.SystemConfigs.SG.name;
-
-    playSoundDrawDominoCard = () => {};
 
     onLoad(): void {
         super.onLoad();
@@ -113,7 +111,7 @@ export class PunterDominoCards extends ObserverComponent {
             card.node.position = destPosition;
 
             movingNode(card.node, drawDuration, originalPositions[i]);
-            this.playSoundDrawDominoCard();
+            this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_DOMINO_CARD);
             await card.drawDominoCard(drawDuration);
         }
     }
@@ -135,5 +133,10 @@ export class PunterDominoCards extends ObserverComponent {
     @render(Configs.SiteConfigs, (store) => store.systemType)
     setSystemType(systemType: string) {
         systemType && (this.systemType = systemType);
+    }
+
+    @handle(gc.Audios.AudioHandler, (handle, id: string) => handle.playSFX(id))
+    playSound(id: string) {
+        return id;
     }
 }
