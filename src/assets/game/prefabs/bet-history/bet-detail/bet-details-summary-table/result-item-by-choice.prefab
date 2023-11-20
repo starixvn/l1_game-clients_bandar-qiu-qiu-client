@@ -29,19 +29,22 @@
       },
       {
         "__id__": 98
+      },
+      {
+        "__id__": 110
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 110
+        "__id__": 118
       },
       {
-        "__id__": 112
+        "__id__": 120
       }
     ],
     "_prefab": {
-      "__id__": 114
+      "__id__": 122
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -269,7 +272,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -173.36,
-      "y": 3.372,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -309,7 +312,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 41.27,
+      "width": 47.78,
       "height": 44
     },
     "_anchorPoint": {
@@ -348,8 +351,8 @@
     "_string": "Club",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 19,
-    "_fontSize": 19,
+    "_actualFontSize": 22,
+    "_fontSize": 22,
     "_fontFamily": "Arial",
     "_lineHeight": 44,
     "_overflow": 0,
@@ -1616,7 +1619,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "handRanking",
+    "_name": "hand-ranking",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1646,8 +1649,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 127.248,
-      "y": 3.344,
+      "x": 108.414,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -1687,12 +1690,12 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 38.837890625,
-      "height": 55.44
+      "width": 133.095703125,
+      "height": 27.72
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_id": ""
@@ -1723,13 +1726,13 @@
       "b": 255,
       "a": 255
     },
-    "_string": "9 : 8",
-    "_horizontalAlign": 1,
+    "_string": "Qiu Qiu (99)",
+    "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 20,
-    "_fontSize": 20,
+    "_actualFontSize": 22,
+    "_fontSize": 22,
     "_fontFamily": "Arial",
-    "_lineHeight": 44,
+    "_lineHeight": 22,
     "_overflow": 0,
     "_enableWrapText": true,
     "_font": {
@@ -1805,7 +1808,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "7cAPNYm/hK+5jlxhwhoaJE"
+    "fileId": "96h82LoCZATplgvN8m1p72"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1816,8 +1819,165 @@
       "__id__": 0
     },
     "fileId": "229vCcFwlG/atBhKyvF26A",
-    "instance": null,
-    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "pips-of-set",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": false,
+    "_components": [
+      {
+        "__id__": 111
+      },
+      {
+        "__id__": 113
+      },
+      {
+        "__id__": 115
+      }
+    ],
+    "_prefab": {
+      "__id__": 117
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 130.013,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.UITransform",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 110
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 112
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 41.25,
+      "height": 44
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "1eu/AMk/hNgIiJV5vUxv0f"
+  },
+  {
+    "__type__": "cc.Label",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 110
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 114
+    },
+    "_customMaterial": null,
+    "_srcBlendFactor": 2,
+    "_dstBlendFactor": 4,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_string": "9 : 8",
+    "_horizontalAlign": 0,
+    "_verticalAlign": 1,
+    "_actualFontSize": 22,
+    "_fontSize": 22,
+    "_fontFamily": "Arial",
+    "_lineHeight": 44,
+    "_overflow": 0,
+    "_enableWrapText": true,
+    "_font": {
+      "__uuid__": "52227efe-f368-4706-a10e-03f3c6922e0c",
+      "__expectedType__": "cc.BitmapFont"
+    },
+    "_isSystemFontUsed": false,
+    "_spacingX": 0,
+    "_isItalic": false,
+    "_isBold": false,
+    "_isUnderline": false,
+    "_underlineHeight": 2,
+    "_cacheMode": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "92G5/IB8tLKoVOLr5EMHhq"
+  },
+  {
+    "__type__": "d64e4oNcsRBYp6eh7Xn+DLt",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 110
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 116
+    },
+    "isBitmapCacheMode": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "d7lpvzOH9JBZKjya2a7vxi"
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "d9ERdGd9RLOIkmeeL2Fl9W",
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -1830,7 +1990,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 111
+      "__id__": 119
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -1858,17 +2018,20 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 113
+      "__id__": 121
     },
     "dominoPrefab": {
       "__uuid__": "87005dce-e03b-433b-9711-cabdc6a5203d",
       "__expectedType__": "cc.Prefab"
     },
-    "choiceLabel": {
+    "lblChoice": {
       "__id__": 13
     },
-    "handRankingLabel": {
+    "lblHandRanking": {
       "__id__": 101
+    },
+    "lblPipsOfSet": {
+      "__id__": 113
     },
     "domino1Node": {
       "__id__": 23

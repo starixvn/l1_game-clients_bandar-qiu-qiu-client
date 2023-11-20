@@ -121,16 +121,16 @@ export const languages = {
         "game_icon_name": "\nBandar Qiu Qiu",
         "game_name": "\nBandar Qiu Qiu",
         "glossary_banker": "Banker",
-        "glossary_club": "klub",
-        "glossary_diamond": "wajik",
+        "glossary_club": "Klub",
+        "glossary_diamond": "Wajik",
         "glossary_hand_ranking_big": "Besar",
         "glossary_hand_ranking_ordinary": "Kartu biasa",
         "glossary_hand_ranking_qiuqiu": "Qiu Qiu (99)",
         "glossary_hand_ranking_six_devil": "Enam Iblis",
         "glossary_hand_ranking_small": "Kecil",
         "glossary_hand_ranking_twin": "Kembar",
-        "glossary_heart": "hati",
-        "glossary_spade": "sekop"
+        "glossary_heart": "Hati",
+        "glossary_spade": "Sekop"
     }
 };
 

@@ -76,7 +76,7 @@ hair side R
   index: -1
 hair top a
   rotate: false
-  xy: 815, 44
+  xy: 815, 35
   size: 134, 134
   orig: 134, 134
   offset: 0, 0
@@ -118,7 +118,7 @@ hand L2
   index: -1
 hand L3
   rotate: true
-  xy: 648, 408
+  xy: 883, 171
   size: 113, 69
   orig: 116, 73
   offset: 2, 2
@@ -167,10 +167,10 @@ hand L9
   index: -1
 hand R
   rotate: true
-  xy: 883, 180
-  size: 104, 72
-  orig: 106, 75
-  offset: 1, 2
+  xy: 648, 409
+  size: 112, 73
+  orig: 113, 75
+  offset: 1, 1
   index: -1
 head
   rotate: false

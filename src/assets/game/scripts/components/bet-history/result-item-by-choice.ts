@@ -21,10 +21,13 @@ export class ResultItemByChoice extends Component {
     dominoPrefab: Prefab = null;
 
     @property(Label)
-    choiceLabel: Label = null;
+    lblChoice: Label = null;
 
     @property(Label)
-    handRankingLabel: Label = null;
+    lblHandRanking: Label = null;
+
+    @property(Label)
+    lblPipsOfSet: Label = null;
 
     @property(Node)
     domino1Node: Node = null;
@@ -42,7 +45,7 @@ export class ResultItemByChoice extends Component {
     bg: Node = null;
 
     setData(choice: string, resultByChoice: any, isWin: boolean, activeBacground: boolean) {
-        this.choiceLabel.string = Translator.gameTranslate(`glossary_${choice}`);
+        this.lblChoice.string = Translator.gameTranslate(`glossary_${choice}`);
 
         this.setDomino(this.domino1Node, resultByChoice.dominoes[0]);
         this.setDomino(this.domino2Node, resultByChoice.dominoes[1]);
@@ -62,17 +65,26 @@ export class ResultItemByChoice extends Component {
 
     showHandRanking(resultByChoice: any, isWin: boolean) {
         const { handRankingId, pipsOfSet } = resultByChoice;
-
-        this.handRankingLabel.string =
+        const lblTarget = this.getLblFollowRankingId(handRankingId);
+        lblTarget.string =
             handRankingId === 0
                 ? `${pipsOfSet[0]} : ${pipsOfSet[1]}`
                 : Translator.gameTranslate(`glossary_${HandRankingMap[handRankingId]}`);
 
-        this.setHighlight(isWin);
+        this.setHighlight(lblTarget, isWin);
     }
 
-    setHighlight(highlight: boolean) {
+    setHighlight(lblTarget: Label, highlight: boolean) {
         const color = highlight ? Color.YELLOW : Color.WHITE;
-        this.handRankingLabel.color = color;
+        lblTarget.color = color;
+    }
+
+    getLblFollowRankingId(handRankingId: number) {
+        const lblTarget = handRankingId === 0 ? this.lblPipsOfSet : this.lblHandRanking;
+
+        this.lblHandRanking.node.active = handRankingId !== 0;
+        this.lblPipsOfSet.node.active = handRankingId === 0;
+
+        return lblTarget;
     }
 }
