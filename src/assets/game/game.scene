@@ -3667,7 +3667,7 @@
     "nodeBetItems": {
       "__id__": 36
     },
-    "delayAnimPayChips": 1.7,
+    "delayAnimPayChips": 3.7,
     "_id": "5aiWz2qQxCMJAb0PpBVlqq"
   },
   {
@@ -3700,7 +3700,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -292.1,
+      "y": -287.1,
       "z": 0
     },
     "_lrot": {
@@ -4979,7 +4979,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 26,
     "md5Tip": null,
-    "_id": "62sfyb+hVIz432umvAPRua"
+    "_id": "b9LmnW9stAFLYxT0kPuu4D"
   },
   {
     "__type__": "cc.Node",

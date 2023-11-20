@@ -37,8 +37,10 @@ export class PunterDominoCards extends ObserverComponent {
     dominoCards: DominoCard[] = [];
 
     private readonly originalDominoCardBankerPosition: Vec3[] = [];
+    private readonly originalDominoCardsPositions: Vec3[] = [];
     private originalDominoCardPlayersPosition: OriginalDominoCardPlayersPosition = {};
     private systemType = Configs.SystemConfigs.SG.name;
+    protected delayOpenNextDominoCard = 0.7;
 
     onLoad(): void {
         super.onLoad();
@@ -82,6 +84,7 @@ export class PunterDominoCards extends ObserverComponent {
         dominoCard.setBackDominoCardSystem(this?.systemType);
         this.dominoCards.push(dominoCard);
         positionArray.push(new Vec3(dominoCard.node.position));
+        this.originalDominoCardsPositions.push(new Vec3(dominoCard.node.position));
     }
 
     hideDominoCards() {
@@ -91,34 +94,22 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async drawDominoCardsPunter() {
-        await FunctionUtils.asyncExecute(this.node, this.drawDominoCardsBanker());
-        await FunctionUtils.asyncExecute(this.node, this.drawDominoCardsPlayers());
-    }
-
-    async drawDominoCardsBanker() {
-        const cards = this.banker?.dominoCards;
-        await FunctionUtils.asyncExecute(this.node, this.drawDominoCards(cards, this.originalDominoCardBankerPosition));
-    }
-
-    async drawDominoCardsPlayers() {
-        for (const [index, player] of this.players.entries()) {
-            const cards = player.dominoCards;
-            await FunctionUtils.asyncExecute(this.node, this.drawDominoCards(cards, this.originalDominoCardPlayersPosition[index]));
-        }
-    }
-
-    protected async drawDominoCards(cards: DominoCard[], originalPositions: Vec3[]): Promise<void> {
         try {
-            const drawDuration = 0.18;
-            for (let i = 0; i < cards.length; i++) {
-                const card = cards[i];
-                card.node.active = true;
-                card.faceDown();
-                const destPosition = getPositionAtDestNode(card.node, this.nodeDominoCardBox);
-                card.node.position = destPosition;
-                movingNode(card.node, drawDuration, originalPositions[i]);
-                this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_DOMINO_CARD);
-                await FunctionUtils.asyncExecute(card?.node, card.drawDominoCard(drawDuration));
+            const drawDuration = 0.15;
+            for (let i = 0; i < this.dominoCards.length; i++) {
+                const dominoCard = this.dominoCards[i];
+                const isLastCard = i === this.dominoCards.length - 1;
+                if (dominoCard) {
+                    dominoCard.node.active = true;
+                    dominoCard.faceDown();
+                    const destPosition = getPositionAtDestNode(dominoCard.node, this.nodeDominoCardBox);
+                    dominoCard.node.position = destPosition;
+                    movingNode(dominoCard.node, drawDuration, this.originalDominoCardsPositions[i]);
+                    this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_DOMINO_CARD);
+                    FunctionUtils.asyncExecute(dominoCard?.node, dominoCard.drawDominoCard(drawDuration));
+                }
+
+                !isLastCard && (await AnimationUtils.delayTime(0.05));
             }
         } catch (error) {
             warn("An error occurred when drawDominoCards", error);
@@ -127,12 +118,15 @@ export class PunterDominoCards extends ObserverComponent {
 
     async openDominoCards(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
         await FunctionUtils.asyncExecute(this.banker?.node, this.banker.handleOpenDominoCards());
+        await AnimationUtils.delayTime(this.delayOpenNextDominoCard);
         this.handleResultInfoBanker(result);
 
         for (let index = 0; index < this.players.length; index++) {
             const player = this.players[index];
+            const isLastCard = index === this.players.length - 1;
             await FunctionUtils.asyncExecute(player?.node, player.handleOpenDominoCards());
             this.handleResultInfoPlayer(result, settlementResult, index, player);
+            !isLastCard && (await AnimationUtils.delayTime(this.delayOpenNextDominoCard));
         }
     }
 
