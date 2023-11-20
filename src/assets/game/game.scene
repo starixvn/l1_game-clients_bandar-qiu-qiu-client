@@ -1364,7 +1364,7 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "971zDlHsxMWYLP5RjCIjjB"
+      "06g3+So3BGwoGmA9/PYjNi"
     ]
   },
   {
@@ -1398,7 +1398,7 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "971zDlHsxMWYLP5RjCIjjB"
+      "06g3+So3BGwoGmA9/PYjNi"
     ]
   },
   {
@@ -1432,7 +1432,7 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "971zDlHsxMWYLP5RjCIjjB"
+      "06g3+So3BGwoGmA9/PYjNi"
     ]
   },
   {
@@ -1466,7 +1466,7 @@
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "971zDlHsxMWYLP5RjCIjjB"
+      "06g3+So3BGwoGmA9/PYjNi"
     ]
   },
   {
@@ -3667,6 +3667,7 @@
     "nodeBetItems": {
       "__id__": 36
     },
+    "delayAnimPayChips": 1.7,
     "_id": "5aiWz2qQxCMJAb0PpBVlqq"
   },
   {
@@ -4978,7 +4979,7 @@
     "nodeContentContainer": null,
     "lengthOfMd5": 26,
     "md5Tip": null,
-    "_id": "abGxYuQWpDw4nqaePoBc+y"
+    "_id": "62sfyb+hVIz432umvAPRua"
   },
   {
     "__type__": "cc.Node",
