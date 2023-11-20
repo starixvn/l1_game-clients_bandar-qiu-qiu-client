@@ -1,1 +1,13 @@
-{"ver":"2.0.3","importer":"animation-clip","imported":true,"uuid":"c4b60d88-67b0-43f5-af3a-74716ea555ba","files":[".cconb"],"subMetas":{},"userData":{"name":"ANIMATION-LR"}}
+{
+  "ver": "2.0.3",
+  "importer": "animation-clip",
+  "imported": true,
+  "uuid": "de289fcb-a80c-4ceb-82ff-881efe6b0e75",
+  "files": [
+    ".cconb"
+  ],
+  "subMetas": {},
+  "userData": {
+    "name": "ANIMATION-LR"
+  }
+}
