@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Node, Vec3, _decorator, warn } from "cc";
+import { Node, UIOpacity, Vec3, _decorator, warn } from "cc";
 import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 import { ObserverComponent } from "db://shared-components/shared/common-components/observer-component/scripts/observer-component";
 import { AnimationUtils, FunctionUtils } from "db://shared-components/shared/utils";
@@ -9,7 +9,7 @@ import { IResultInfo, TResult, handRankingIdMapText, resultStatusColorMapping } 
 const { ccclass, property } = _decorator;
 
 const { Configs, Rounds, Translator } = gc;
-const { movingNode, getPositionAtDestNode } = AnimationUtils;
+const { movingNode, getPositionAtDestNode, fadeOutAndHide } = AnimationUtils;
 const { render, handle } = Observer;
 
 enum PunterCardsResultMapping {
@@ -36,6 +36,7 @@ export class PunterDominoCards extends ObserverComponent {
     protected delayTimeOpenFourDominoes = 0.7;
     protected delayTimeDrawEachDomino = 0.05;
     protected delayTimeDrawFourDominoes = 0.3;
+    protected durationHideDominos = 0.3;
 
     onLoad(): void {
         super.onLoad();
@@ -60,10 +61,21 @@ export class PunterDominoCards extends ObserverComponent {
         positionArray.push(new Vec3(dominoCard.node.position));
     }
 
-    hideDominoCards() {
-        this.dominoCards?.forEach((dominoCard) => {
-            dominoCard && (dominoCard.node.active = false);
-        });
+    async hideDominoCards() {
+        try {
+            await FunctionUtils.asyncExecute(
+                this.node,
+                Promise.all(
+                    (this.dominoCards || []).map(async (dominoCard) => {
+                        if (dominoCard) {
+                            await fadeOutAndHide(dominoCard.node, this.durationHideDominos);
+                        }
+                    })
+                )
+            );
+        } catch (error) {
+            warn("An error occurred when hideDominoCards", error);
+        }
     }
 
     async drawDominoCardsPunter() {
@@ -80,7 +92,7 @@ export class PunterDominoCards extends ObserverComponent {
                     this.animateDominoCard(dominoCard, drawDuration, i);
                 }
 
-                await this.applyDominoCardDelay(isIndexDivisibleBy4, isLastCard);
+                await FunctionUtils.asyncExecute(dominoCard?.node, this.applyDominoCardDelay(isIndexDivisibleBy4, isLastCard));
             }
         } catch (error) {
             warn("An error occurred when drawDominoCards", error);
@@ -89,6 +101,7 @@ export class PunterDominoCards extends ObserverComponent {
 
     protected prepareDominoCard(dominoCard: DominoCard) {
         dominoCard.node.active = true;
+        dominoCard.node.getComponent(UIOpacity).opacity = 255;
         dominoCard.faceDown();
         const destPosition = getPositionAtDestNode(dominoCard.node, this.nodeDominoCardBox);
         dominoCard.node.position = destPosition;
@@ -111,16 +124,20 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async openDominoCards(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
-        await FunctionUtils.asyncExecute(this.banker?.node, this.banker.handleOpenDominoCards());
-        this.handleResultInfoBanker(result);
-        await AnimationUtils.delayTime(this.delayTimeOpenFourDominoes);
+        try {
+            await FunctionUtils.asyncExecute(this.banker?.node, this.banker.handleOpenDominoCards());
+            this.handleResultInfoBanker(result);
+            await AnimationUtils.delayTime(this.delayTimeOpenFourDominoes);
 
-        for (let index = 0; index < this.players.length; index++) {
-            const player = this.players[index];
-            const isLastCard = index === this.players.length - 1;
-            await FunctionUtils.asyncExecute(player?.node, player.handleOpenDominoCards());
-            this.handleResultInfoPlayer(result, settlementResult, index, player);
-            !isLastCard && (await AnimationUtils.delayTime(this.delayTimeOpenFourDominoes));
+            for (let index = 0; index < this.players.length; index++) {
+                const player = this.players[index];
+                const isLastCard = index === this.players.length - 1;
+                await FunctionUtils.asyncExecute(player?.node, player.handleOpenDominoCards());
+                this.handleResultInfoPlayer(result, settlementResult, index, player);
+                !isLastCard && (await AnimationUtils.delayTime(this.delayTimeOpenFourDominoes));
+            }
+        } catch (error) {
+            warn("An error occurred when openDominoCards", error);
         }
     }
 

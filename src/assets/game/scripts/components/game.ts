@@ -50,7 +50,7 @@ export default class Game extends GameComponent {
         if (isStartRound && this.punterCardsComp) {
             super.handleStartRound(isStartRound);
 
-            this.punterCardsComp?.hideDominoCards();
+            await this.punterCardsComp?.hideDominoCards();
             try {
                 await FunctionUtils.asyncExecute(this.node, this.punterCardsComp?.drawDominoCardsPunter());
             } catch (error) {
