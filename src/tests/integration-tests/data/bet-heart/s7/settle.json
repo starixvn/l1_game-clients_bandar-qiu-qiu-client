@@ -1,0 +1,151 @@
+[
+    {
+        "name": "settle",
+        "server": {
+            "delay": 6000,
+            "response": [
+                {
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
+                    "payload": {
+                        "finish": {
+                            "result": {
+                                "banker": {
+                                    "dominoes": ["01", "26", "05", "22"],
+                                    "pipsOfSet": null,
+                                    "handRankingId": 1
+                                },
+                                "spade": {
+                                    "dominoes": ["35", "34", "04", "25"],
+                                    "pipsOfSet": null,
+                                    "handRankingId": 0
+                                },
+                                "heart": {
+                                    "dominoes": ["46", "55", "66", "56"],
+                                    "pipsOfSet": null,
+                                    "handRankingId": 2
+                                },
+                                "club": {
+                                    "dominoes": ["00", "26", "12", "16"],
+                                    "pipsOfSet": [8, 0],
+                                    "handRankingId": 0
+                                },
+                                "diamond": {
+                                    "dominoes": ["13", "14", "36", "11"],
+                                    "pipsOfSet": [9, 1],
+                                    "handRankingId": 0
+                                }
+                            },
+                            "settlementResult": {
+                                "spade": 0,
+                                "heart": 1,
+                                "club": 0,
+                                "diamond": 0
+                            },
+                            "roundId": 2,
+                            "winningPlayers": {}
+                        },
+                        "resultHash": {
+                            "rawValue": "{}_{#96169f06d0497cb3622f6d08c0}",
+                            "extraInfos": [
+                                "01",
+                                "26",
+                                "05",
+                                "22",
+                                "35",
+                                "34",
+                                "04",
+                                "25",
+                                "46",
+                                "55",
+                                "66",
+                                "56",
+                                "00",
+                                "26",
+                                "12",
+                                "16",
+                                "13",
+                                "14",
+                                "36",
+                                "11"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
+                    "payload": {
+                        "status": {
+                            "winningByChoices": {
+                                "spade": 0,
+                                "heart": 4,
+                                "club": 0,
+                                "diamond": 0
+                            },
+                            "win": true,
+                            "bet": 4
+                        }
+                    }
+                },
+                {
+                    "namespace": "/user/bandarqiuqiu",
+                    "event": "BandarQiuQiu",
+                    "payload": {
+                        "winners": {
+                            "roundId": 2,
+                            "winningPlayers": {
+                                "abc": {
+                                    "rate": 1,
+                                    "win": true,
+                                    "bet": 4,
+                                    "winningByChoices": {
+                                        "spade": 0,
+                                        "heart": 4,
+                                        "club": 0,
+                                        "diamond": 0
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "name": "get balance",
+        "server": {
+            "waitForRequest": {
+                "namespace": "/user/auth/balance",
+                "event": "post",
+                "payload": {
+                    "session": "ss",
+                    "username": "username"
+                }
+            },
+            "response": [
+                {
+                    "namespace": "/user/auth/balance",
+                    "event": "post",
+                    "payload": {
+                        "errorCode": "0",
+                        "message": null,
+                        "umInfo": null,
+                        "isSuccessful": true,
+                        "isUM": false,
+                        "balance": 2003,
+                        "scoins": 0,
+                        "availableSpins": 0
+                    }
+                }
+            ]
+        },
+        "client": {
+            "waitUntilMetExpectation": true,
+            "waitExpectationTimeout": 60000,
+            "actual": "Integration.label('balance')",
+            "expected": "2,003"
+        }
+    }
+]

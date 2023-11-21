@@ -19,33 +19,28 @@
                             "minBet": 1,
                             "maxBet": 2000,
                             "maxBetPerChoices": {
-                                "dragon": 2000,
-                                "tiger": 2000,
-                                "tie": 500,
-                                "redDragon": 1000,
-                                "blackDragon": 1000,
-                                "redTiger": 1000,
-                                "blackTiger": 1000
+                                "spade": 2000,
+                                "heart": 2000,
+                                "club": 2000,
+                                "diamond": 2000
                             },
                             "chips": ["1", "2", "5", "10", "50", "100", "200", "500", "1000", "2000"],
                             "stakeLevels": [],
                             "odds": {
-                                "dragon": 1.95,
-                                "tiger": 1.95,
-                                "tie": 1.9,
-                                "redDragon": 1.65,
-                                "blackDragon": 1.65,
-                                "redTiger": 1.65,
-                                "blackTiger": 1.65
+                                "sixDevil": 7,
+                                "twin": 6,
+                                "small": 5,
+                                "big": 4,
+                                "qiuQiu": 3,
+                                "ordinaryCard": 2
                             },
                             "originalOdds": {
-                                "dragon": 1.95,
-                                "tiger": 1.95,
-                                "tie": 1.9,
-                                "redDragon": 1.65,
-                                "blackDragon": 1.65,
-                                "redTiger": 1.65,
-                                "blackTiger": 1.65
+                                "sixDevil": 7,
+                                "twin": 6,
+                                "small": 5,
+                                "big": 4,
+                                "qiuQiu": 3,
+                                "ordinaryCard": 2
                             },
                             "enableFreeBet": false
                         },
@@ -53,23 +48,37 @@
                             {
                                 "roundId": 1,
                                 "result": {
-                                    "dragon": {
-                                        "rank": 11,
-                                        "suit": 1
+                                    "banker": {
+                                        "dominoes": ["23", "22", "03", "44"],
+                                        "pipsOfSet": [9, 1],
+                                        "handRankingId": 0
                                     },
-                                    "tiger": {
-                                        "rank": 9,
-                                        "suit": 2
+                                    "spade": {
+                                        "dominoes": ["02", "33", "05", "56"],
+                                        "pipsOfSet": [8, 6],
+                                        "handRankingId": 0
+                                    },
+                                    "heart": {
+                                        "dominoes": ["35", "34", "04", "25"],
+                                        "pipsOfSet": [5, 1],
+                                        "handRankingId": 0
+                                    },
+                                    "club": {
+                                        "dominoes": ["00", "26", "12", "16"],
+                                        "pipsOfSet": [8, 0],
+                                        "handRankingId": 0
+                                    },
+                                    "diamond": {
+                                        "dominoes": ["13", "14", "15", "11"],
+                                        "pipsOfSet": [9, 8],
+                                        "handRankingId": 0
                                     }
                                 },
                                 "settlementResult": {
-                                    "dragon": true,
-                                    "tiger": false,
-                                    "tie": false,
-                                    "blackDragon": false,
-                                    "redDragon": true,
-                                    "blackTiger": true,
-                                    "redTiger": false
+                                    "spade": 0,
+                                    "heart": 0,
+                                    "club": 0,
+                                    "diamond": 1
                                 }
                             }
                         ],
@@ -88,7 +97,7 @@
                         "resultHash": {
                             "hashValue": "85c0bdc6ee9c1e742dc0963c6ce3dc1d"
                         },
-                        "remainingTime": 6,
+                        "remainingTime": 10,
                         "players": {},
                         "chips": {}
                     }

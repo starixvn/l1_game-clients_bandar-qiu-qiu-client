@@ -7,7 +7,7 @@
             "payload": {
                 "m": 1,
                 "username": "Conall",
-                "betChoice": "tiger",
+                "betChoice": "spade",
                 "amount": 1,
                 "freeBet": false
             }
@@ -18,13 +18,13 @@
                 "event": "BandarQiuQiu",
                 "payload": {
                     "ownBets": {
-                        "tiger": 1
+                        "spade": 1
                     },
                     "totalBets": {
-                        "tiger": 1
+                        "spade": 1
                     },
                     "endBet": 1,
-                    "betChoice": "tiger",
+                    "betChoice": "spade",
                     "freeBet": false,
                     "user": {
                         "red": 1999,
@@ -33,7 +33,7 @@
                         "maxBet": 3000
                     },
                     "ownChip": {
-                        "betChoice": "tiger",
+                        "betChoice": "spade",
                         "amount": 1
                     }
                 }
@@ -41,7 +41,7 @@
         ]
     },
     "client": {
-        "action": "Integration.click('tiger')",
+        "action": "Integration.click('spade')",
         "waitUntilMetExpectation": true,
         "waitExpectationTimeout": 60000,
         "actual": "Integration.label('balance')",

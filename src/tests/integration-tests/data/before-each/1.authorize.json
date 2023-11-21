@@ -30,17 +30,14 @@
                             "offerGames": [
                                 {
                                     "_id": "64993d4a7d27c898f074f5ad",
-                                    "gameId": 67,
+                                    "gameId": 75,
                                     "minBet": 1,
                                     "maxBet": 2000,
                                     "maxBetPerChoices": {
-                                        "dragon": 2000,
-                                        "tiger": 2000,
-                                        "tie": 500,
-                                        "redDragon": 1000,
-                                        "blackDragon": 1000,
-                                        "redTiger": 1000,
-                                        "blackTiger": 1000
+                                        "spade": 2000,
+                                        "heart": 2000,
+                                        "club": 2000,
+                                        "diamond": 2000
                                     }
                                 }
                             ],

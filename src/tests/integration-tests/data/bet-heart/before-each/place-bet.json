@@ -7,7 +7,7 @@
             "payload": {
                 "m": 1,
                 "username": "Conall",
-                "betChoice": "dragon",
+                "betChoice": "heart",
                 "amount": 1,
                 "freeBet": false
             }
@@ -18,13 +18,13 @@
                 "event": "BandarQiuQiu",
                 "payload": {
                     "ownBets": {
-                        "dragon": 1
+                        "heart": 1
                     },
                     "totalBets": {
-                        "dragon": 1
+                        "heart": 1
                     },
                     "endBet": 1,
-                    "betChoice": "dragon",
+                    "betChoice": "heart",
                     "freeBet": false,
                     "user": {
                         "red": 1999,
@@ -33,7 +33,7 @@
                         "maxBet": 3000
                     },
                     "ownChip": {
-                        "betChoice": "dragon",
+                        "betChoice": "heart",
                         "amount": 1
                     }
                 }
@@ -41,7 +41,7 @@
         ]
     },
     "client": {
-        "action": "Integration.click('dragon')",
+        "action": "Integration.click('heart')",
         "waitUntilMetExpectation": true,
         "waitExpectationTimeout": 60000,
         "actual": "Integration.label('balance')",
