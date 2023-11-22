@@ -1376,7 +1376,7 @@
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
-    "defaultAnimation": "animation-HL-LR",
+    "defaultAnimation": "animation-HL-Left",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
     "_preCacheMode": 0,
@@ -6325,7 +6325,7 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": -1,
+      "x": 1,
       "y": 1,
       "z": 1
     },
@@ -6444,7 +6444,7 @@
       "__expectedType__": "sp.SkeletonData"
     },
     "defaultSkin": "default",
-    "defaultAnimation": "animation-HL-LR",
+    "defaultAnimation": "animation-HL-Right",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
     "_preCacheMode": 0,
