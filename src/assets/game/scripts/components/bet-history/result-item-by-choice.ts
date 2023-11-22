@@ -44,26 +44,43 @@ export class ResultItemByChoice extends Component {
     @property(Node)
     bg: Node = null;
 
-    setData(choice: string, resultByChoice: any, isWin: boolean, activeBacground: boolean) {
-        this.lblChoice.string = Translator.gameTranslate(`glossary_${choice}`);
-
-        this.setDomino(this.domino1Node, resultByChoice.dominoes[0]);
-        this.setDomino(this.domino2Node, resultByChoice.dominoes[1]);
-        this.setDomino(this.domino3Node, resultByChoice.dominoes[2]);
-        this.setDomino(this.domino4Node, resultByChoice.dominoes[3]);
+    setData(choice: string, resultByChoice: any, isWin: boolean, activeBackground: boolean) {
+        this.setChoiceLabel(choice);
+        this.setDominoNodes(resultByChoice.dominoes);
         this.showHandRanking(resultByChoice, isWin);
-        this.bg.active = activeBacground;
+        this.setBackgroundVisibility(activeBackground);
     }
 
-    setDomino(dominoNode: Node, dominoValue: string) {
-        const domino = instantiate(this.dominoPrefab);
-        dominoNode.addChild(domino);
-        const dominoCard = domino.getComponent(DominoCard);
+    protected setChoiceLabel(choice: string) {
+        this.lblChoice.string = Translator.gameTranslate(`glossary_${choice}`);
+    }
+
+    protected setDominoNodes(dominoValues: string[]) {
+        const dominoNodes = [this.domino1Node, this.domino2Node, this.domino3Node, this.domino4Node];
+
+        dominoNodes.forEach((dominoNode, index) => {
+            const dominoValue = dominoValues[index];
+            this.setDomino(dominoNode, dominoValue);
+        });
+    }
+
+    protected setDomino(dominoNode: Node, dominoValue: string) {
+        const dominoCard = this.createAndAttachDominoCard(dominoNode);
         dominoCard.setDominoCard({ top: +dominoValue[0], bottom: +dominoValue[1] });
         dominoCard.faceUp();
     }
 
-    showHandRanking(resultByChoice: any, isWin: boolean) {
+    protected createAndAttachDominoCard(dominoNode: Node): DominoCard {
+        const domino = instantiate(this.dominoPrefab);
+        dominoNode.addChild(domino);
+        return domino.getComponent(DominoCard);
+    }
+
+    protected setBackgroundVisibility(activeBackground: boolean) {
+        this.bg.active = activeBackground;
+    }
+
+    protected showHandRanking(resultByChoice: any, isWin: boolean) {
         const { handRankingId, pipsOfSet } = resultByChoice;
         const lblTarget = this.getLblFollowRankingId(handRankingId);
         lblTarget.string =
@@ -74,12 +91,12 @@ export class ResultItemByChoice extends Component {
         this.setHighlight(lblTarget, isWin);
     }
 
-    setHighlight(lblTarget: Label, highlight: boolean) {
+    protected setHighlight(lblTarget: Label, highlight: boolean) {
         const color = highlight ? Color.YELLOW : Color.WHITE;
         lblTarget.color = color;
     }
 
-    getLblFollowRankingId(handRankingId: number) {
+    protected getLblFollowRankingId(handRankingId: number) {
         const lblTarget = handRankingId === 0 ? this.lblPipsOfSet : this.lblHandRanking;
 
         this.lblHandRanking.node.active = handRankingId !== 0;

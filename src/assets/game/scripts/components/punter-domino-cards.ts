@@ -9,7 +9,7 @@ import { IResultInfo, TResult, handRankingIdMapText, resultStatusColorMapping } 
 const { ccclass, property } = _decorator;
 
 const { Configs, Rounds, Translator } = gc;
-const { movingNode, getPositionAtDestNode, fadeOutAndHide } = AnimationUtils;
+const { movingNode, getPositionAtDestNode, fadeOutAndDeactivate } = AnimationUtils;
 const { render, handle } = Observer;
 
 enum PunterCardsResultMapping {
@@ -68,7 +68,7 @@ export class PunterDominoCards extends ObserverComponent {
                 Promise.all(
                     (this.dominoCards || []).map(async (dominoCard) => {
                         if (dominoCard) {
-                            await fadeOutAndHide(dominoCard.node, this.durationHideDominos);
+                            await fadeOutAndDeactivate(dominoCard.node, this.durationHideDominos);
                         }
                     })
                 )
