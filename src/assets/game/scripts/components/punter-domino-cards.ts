@@ -37,6 +37,7 @@ export class PunterDominoCards extends ObserverComponent {
     protected delayTimeDrawEachDomino = 0.05;
     protected delayTimeDrawFourDominoes = 0.3;
     protected durationHideDominos = 0.3;
+    protected durationDrawDomino = 0.15;
 
     onLoad(): void {
         super.onLoad();
@@ -79,20 +80,20 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     async drawDominoCardsPunter() {
-        const drawDuration = 0.15;
-
         try {
             for (let i = 0; i < this.dominoCards.length; i++) {
                 const dominoCard = this.dominoCards[i];
+                const isFirstCard = i === 0;
                 const isLastCard = i === this.dominoCards.length - 1;
                 const isIndexDivisibleBy4 = (i + 1) % 4 === 0;
 
                 if (dominoCard) {
                     this.prepareDominoCard(dominoCard);
-                    this.animateDominoCard(dominoCard, drawDuration, i);
+                    this.animateDominoCard(dominoCard, this.durationDrawDomino, i);
                 }
 
                 await FunctionUtils.asyncExecute(dominoCard?.node, this.applyDominoCardDelay(isIndexDivisibleBy4, isLastCard));
+                this.handlePlaySound(isIndexDivisibleBy4, isLastCard, isFirstCard);
             }
         } catch (error) {
             warn("An error occurred when drawDominoCards", error);
@@ -109,7 +110,6 @@ export class PunterDominoCards extends ObserverComponent {
 
     protected animateDominoCard(dominoCard: DominoCard, drawDuration: number, index: number) {
         movingNode(dominoCard.node, drawDuration, this.originalDominoCardsPositions[index]);
-        this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_DOMINO_CARD);
         FunctionUtils.asyncExecute(dominoCard?.node, dominoCard.drawDominoCard(drawDuration));
     }
 
@@ -118,8 +118,14 @@ export class PunterDominoCards extends ObserverComponent {
             await AnimationUtils.delayTime(this.delayTimeDrawEachDomino);
         }
 
-        if (isIndexDivisibleBy4) {
+        if (isIndexDivisibleBy4 && !isLastCard) {
             await AnimationUtils.delayTime(this.delayTimeDrawFourDominoes);
+        }
+    }
+
+    protected handlePlaySound(isIndexDivisibleBy4: boolean, isLastCard: boolean, isFirstCard: boolean) {
+        if (isFirstCard || (isIndexDivisibleBy4 && !isLastCard)) {
+            this.playSound(gc.Audios.AudioIds.DRAW_SINGLE_DOMINO_CARD);
         }
     }
 
