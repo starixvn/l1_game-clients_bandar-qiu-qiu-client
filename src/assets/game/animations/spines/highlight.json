@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "uFE6OTyjNexnvD13rXKMHg+nYeY", "spine": "3.8.99", "x": -200, "y": -180, "width": 400, "height": 360 },
+"skeleton": { "hash": "jmUnMiEVo4Dqgl3H7QN0B+KJwvE", "spine": "3.8.99", "x": -200, "y": -180, "width": 401.5, "height": 360 },
 "bones": [
 	{ "name": "highlight" },
 	{ "name": "bg", "parent": "highlight" },
@@ -24,13 +24,13 @@
 		"name": "default",
 		"attachments": {
 			"frame": {
-				"middle-highlight": { "x": 4.5, "y": 0.5, "width": 251, "height": 229 }
+				"middle-highlight": { "x": 1.5, "width": 400, "height": 360 }
 			},
 			"frame2": {
-				"left-right-highlight": { "x": 4.5, "y": 0.5, "width": 252, "height": 229 }
+				"left-right-highlight": { "x": 0.5, "width": 400, "height": 360 }
 			},
 			"frame3": {
-				"left-right-highlight": { "x": 4.5, "y": 0.5, "scaleX": -1, "width": 252, "height": 229 }
+				"left-right-highlight": { "x": 0.5, "scaleX": -1, "width": 400, "height": 360 }
 			},
 			"sequense": {
 				"f00": { "width": 400, "height": 360 },

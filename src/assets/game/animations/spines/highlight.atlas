@@ -99,13 +99,13 @@ left-right-highlight
   rotate: false
   xy: 1168, 93
   size: 252, 229
-  orig: 252, 229
-  offset: 0, 0
+  orig: 400, 360
+  offset: 74, 67
   index: -1
 middle-highlight
   rotate: false
   xy: 1422, 93
   size: 251, 229
-  orig: 251, 229
-  offset: 0, 0
+  orig: 400, 360
+  offset: 74, 67
   index: -1
