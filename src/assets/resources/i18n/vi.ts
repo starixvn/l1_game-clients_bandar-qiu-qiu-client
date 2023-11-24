@@ -118,8 +118,8 @@ export const languages = {
         "win": "Thắng"
     },
     "BandarQiuQiu": {
-        "game_icon_name": "Bandar Qiu Qiu",
-        "game_name": "Bandar Qiu Qiu",
+        "game_icon_name": "Domino 99",
+        "game_name": "Domino 99",
         "glossary_banker": "Nhà Cái",
         "glossary_club": "Chuồn",
         "glossary_diamond": "Rô",
