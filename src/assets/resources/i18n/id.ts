@@ -118,8 +118,8 @@ export const languages = {
         "win": "Menang"
     },
     "BandarQiuQiu": {
-        "game_icon_name": "\nBandar Qiu Qiu",
-        "game_name": "\nBandar Qiu Qiu",
+        "game_icon_name": "Bandar Qiu Qiu",
+        "game_name": "Bandar Qiu Qiu",
         "glossary_banker": "Banker",
         "glossary_club": "Klub",
         "glossary_diamond": "Wajik",
