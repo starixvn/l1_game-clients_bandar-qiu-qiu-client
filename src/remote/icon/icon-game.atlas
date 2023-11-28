@@ -1,244 +1,97 @@
 
 icon-game.png
-size: 2033,409
+size: 394,768
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 anhsang
-  rotate: true
-  xy: 1938, 100
+  rotate: false
+  xy: 2, 97
   size: 195, 53
-  orig: 195, 75
-  offset: 0, 22
+  orig: 218, 218
+  offset: 11, 154
   index: -1
 bg
   rotate: false
-  xy: 422, 205
+  xy: 2, 152
   size: 202, 202
-  orig: 203, 202
-  offset: 1, 0
+  orig: 218, 218
+  offset: 8, 8
   index: -1
-copvang
+bg-icon
+  rotate: true
+  xy: 210, 570
+  size: 196, 181
+  orig: 218, 218
+  offset: 11, 12
+  index: -1
+domino-04
+  rotate: true
+  xy: 326, 6
+  size: 96, 58
+  orig: 218, 218
+  offset: 13, 67
+  index: -1
+domino-05
   rotate: false
-  xy: 206, 181
-  size: 214, 226
-  orig: 215, 236
-  offset: 0, 1
+  xy: 2, 2
+  size: 105, 93
+  orig: 218, 218
+  offset: 1, 112
   index: -1
-dau
+domino-16
   rotate: false
-  xy: 1850, 157
-  size: 68, 56
-  orig: 68, 57
-  offset: 0, 1
+  xy: 199, 5
+  size: 125, 97
+  orig: 218, 218
+  offset: 93, 98
   index: -1
-daucop
+domino-66
   rotate: false
-  xy: 1842, 215
-  size: 94, 80
-  orig: 94, 80
-  offset: 0, 0
+  xy: 206, 104
+  size: 139, 91
+  orig: 218, 218
+  offset: 79, 27
   index: -1
-duoi
-  rotate: false
-  xy: 1850, 10
-  size: 117, 88
-  orig: 117, 88
-  offset: 0, 0
-  index: -1
-khoi/Layer 220
-  rotate: false
-  xy: 2, 6
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 221
-  rotate: false
-  xy: 203, 6
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 222
+gold1
   rotate: true
-  xy: 626, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 223
-  rotate: true
-  xy: 778, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 224
-  rotate: true
-  xy: 786, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 225
-  rotate: true
-  xy: 930, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 226
-  rotate: true
-  xy: 938, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 227
-  rotate: true
-  xy: 1082, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 228
-  rotate: true
-  xy: 1090, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 229
-  rotate: true
-  xy: 1234, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 230
-  rotate: true
-  xy: 1242, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 231
-  rotate: true
-  xy: 1386, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 232
-  rotate: true
-  xy: 1394, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 233
-  rotate: true
-  xy: 1538, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 234
-  rotate: true
-  xy: 1546, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 235
-  rotate: true
-  xy: 1690, 208
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
-  index: -1
-khoi/Layer 236
-  rotate: true
-  xy: 1698, 7
-  size: 199, 150
-  orig: 199, 150
-  offset: 0, 0
+  xy: 210, 398
+  size: 170, 173
+  orig: 218, 218
+  offset: 25, 22
   index: -1
 light-vang
   rotate: true
-  xy: 1842, 297
-  size: 110, 189
-  orig: 113, 199
-  offset: 2, 10
+  xy: 2, 356
+  size: 202, 203
+  orig: 218, 218
+  offset: 5, 7
   index: -1
 light-xanh
   rotate: true
-  xy: 404, 2
-  size: 177, 182
-  orig: 177, 182
-  offset: 0, 0
+  xy: 207, 197
+  size: 199, 185
+  orig: 218, 218
+  offset: 10, 14
   index: -1
 lightvang
-  rotate: false
-  xy: 206, 166
+  rotate: true
+  xy: 347, 184
   size: 11, 13
   orig: 13, 15
   offset: 1, 1
   index: -1
 lightxanh
-  rotate: false
-  xy: 219, 166
+  rotate: true
+  xy: 362, 184
   size: 11, 13
   orig: 13, 15
   offset: 1, 1
   index: -1
 outer
   rotate: false
-  xy: 588, 6
-  size: 196, 197
-  orig: 196, 197
-  offset: 0, 0
-  index: -1
-rau
-  rotate: false
-  xy: 422, 181
-  size: 29, 22
-  orig: 29, 22
-  offset: 0, 0
-  index: -1
-rongxanh
-  rotate: false
-  xy: 2, 158
-  size: 202, 249
-  orig: 202, 249
-  offset: 0, 0
-  index: -1
-sung1
-  rotate: true
-  xy: 1969, 14
-  size: 84, 62
-  orig: 84, 62
-  offset: 0, 0
-  index: -1
-sung2
-  rotate: true
-  xy: 1993, 212
-  size: 83, 38
-  orig: 83, 53
-  offset: 0, 0
-  index: -1
-sung3
-  rotate: true
-  xy: 1993, 139
-  size: 71, 33
-  orig: 71, 34
-  offset: 0, 0
-  index: -1
-sung4
-  rotate: false
-  xy: 1850, 131
-  size: 67, 24
-  orig: 67, 24
-  offset: 0, 0
+  xy: 2, 560
+  size: 206, 206
+  orig: 218, 218
+  offset: 6, 7
   index: -1
