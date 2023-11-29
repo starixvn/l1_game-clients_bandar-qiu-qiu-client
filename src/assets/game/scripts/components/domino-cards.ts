@@ -1,5 +1,5 @@
 import { Color, Component, Label, _decorator } from "cc";
-import { DominoCard } from "../../../../extensions/shared-components/assets/game/domino/scripts/domino-card";
+import { DominoCard } from "db://shared-components/game/domino/scripts/domino-card";
 const { ccclass, property } = _decorator;
 
 @ccclass("DominoCards")
