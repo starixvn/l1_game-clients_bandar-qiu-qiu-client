@@ -2,7 +2,7 @@ import gc from "@sg/game-client-base";
 import { Label, Node, _decorator, warn } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
-import { FunctionUtils } from "db://shared-components/shared/utils";
+import { AnimationUtils, FunctionUtils } from "db://shared-components/shared/utils";
 import Observer from "observer";
 import { siteConfigs } from "../../../scripts/site-configs";
 import { containerOptions, settings } from "../game-settings";
@@ -40,7 +40,9 @@ export default class Game extends GameComponent {
     @render(RoundHistories.RoundHistoryStore, (store) => store.joinGameHistory)
     handleJoinGameAndShowResult(joinGameHistory: gc.RoundHistories.IJoinGameHistory) {
         const { roundHistory, isShow } = joinGameHistory ?? {};
+
         if (roundHistory && isShow) {
+            this.isReceiveFinishBeforeRoundHistory = false;
             this.showResult(roundHistory?.result, false, roundHistory?.settlementResult);
             this.punterCardsComp?.updateGameResultsInfo(roundHistory?.result, roundHistory?.settlementResult);
         }
@@ -66,9 +68,13 @@ export default class Game extends GameComponent {
     ) {
         if (result && settlementResult) {
             this.renderResultDominoCards(result as TResult);
-
             if (hasAnimation) {
                 try {
+                    if (this.isReceiveFinishBeforeRoundHistory) {
+                        await AnimationUtils.delayTime(0.2);
+                        this.isReceiveFinishBeforeRoundHistory = false;
+                        warn("delay when receive finish before round history");
+                    }
                     await FunctionUtils.asyncExecute(this.node, this.punterCardsComp?.openDominoCards(result, settlementResult));
                 } catch (error) {
                     warn("An error occurred when openDominoCards", error);
