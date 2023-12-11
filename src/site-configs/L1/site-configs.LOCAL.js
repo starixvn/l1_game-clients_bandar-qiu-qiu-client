@@ -8,4 +8,5 @@ window.envConfig = {
     enableMsgpackParserOnNotification: false,
     enableMsgpackParserAllGames: false,
     SGConnectSubDomain: "connectsite",
+    gameServiceSubDomain: "l1-services",
 };

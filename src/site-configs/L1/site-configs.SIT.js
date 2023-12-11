@@ -9,4 +9,5 @@ window.envConfig = {
     enableMsgpackParserOnNotification: true,
     subDirectory: "sit",
     SGConnectSubDomain: "l1sitconnectsite",
+    gameServiceSubDomain: "l1uatservices",
 };

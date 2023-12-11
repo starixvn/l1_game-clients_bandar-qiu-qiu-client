@@ -13,9 +13,9 @@ const defaultConfig: gc.Configs.SiteConfigs = {
         localhost: "lumigame.com",
     },
     ssl: true,
-    subDomain: "l1-proxy1",
+    subDomain: "l1-proxy",
     env: "LOCAL",
-    subGuideDomain: "l1-guide-1",
+    subGuideDomain: "l1-guide",
     SGConnectSubDomain: "connectsite",
     enableMsgpackParserAllGames: false,
     enableMsgpackParserOnNotification: false,
@@ -25,6 +25,7 @@ const defaultConfig: gc.Configs.SiteConfigs = {
     },
     mainObserverNamespace: "BandarQiuQiu",
     tolgeeUrl: "",
+    gameServiceSubDomain: "l1-services",
 };
 
 let configDev = {
