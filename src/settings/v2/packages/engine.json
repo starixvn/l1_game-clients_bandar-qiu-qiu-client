@@ -12,7 +12,7 @@
         "_value": true
       },
       "gfx-webgl2": {
-        "_value": true
+        "_value": false
       },
       "animation": {
         "_value": true
@@ -131,7 +131,6 @@
       "audio",
       "base",
       "gfx-webgl",
-      "gfx-webgl2",
       "intersection-2d",
       "particle-2d",
       "physics-2d-builtin",
