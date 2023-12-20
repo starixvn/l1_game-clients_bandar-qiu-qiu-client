@@ -161,7 +161,7 @@ cocos_integration_build:
     - npm install
     - CocosCreator --project . --build "platform=web-mobile;debug=false;webOrientation=landscape;md5Cache=true;replaceSplashScreen=true"
   tags:
-    - cocos-3x
+    - cocos-3x, build-integration-test
   artifacts:
     when: always
     paths:
