@@ -1,0 +1,38 @@
+{
+"skeleton": { "hash": "w9tjBhG/uhXR3/fUSmmLxi1GcI0", "spine": "3.8.99", "x": -107, "y": -207, "width": 214, "height": 414 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "banner-lobby", "parent": "root" },
+	{ "name": "banner-lobby2", "parent": "root" }
+],
+"slots": [
+	{ "name": "pontoon-banner-en2", "bone": "banner-lobby2", "attachment": "pontoon-banner-en" },
+	{ "name": "pontoon-banner-en", "bone": "banner-lobby", "attachment": "pontoon-banner-en", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"pontoon-banner-en": {
+				"pontoon-banner-en": { "width": 214, "height": 414 }
+			},
+			"pontoon-banner-en2": {
+				"pontoon-banner-en": { "width": 214, "height": 414 }
+			}
+		}
+	}
+],
+"animations": {
+	"show": {
+		"slots": {
+			"pontoon-banner-en": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 1.5, "color": "ffffff6f", "curve": 0.25, "c3": 0.75 },
+					{ "time": 3, "color": "ffffff00" }
+				]
+			}
+		}
+	}
+}
+}

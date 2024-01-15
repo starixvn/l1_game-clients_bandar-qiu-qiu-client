@@ -1,0 +1,13 @@
+
+banner-game.png
+size: 256,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+pontoon-banner-en
+  rotate: false
+  xy: 2, 2
+  size: 214, 414
+  orig: 214, 414
+  offset: 0, 0
+  index: -1
