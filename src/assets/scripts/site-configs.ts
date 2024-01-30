@@ -13,7 +13,7 @@ const defaultConfig: gc.Configs.SiteConfigs = {
         localhost: "lumigame.com",
     },
     ssl: true,
-    subDomain: "l1-proxy1",
+    subDomain: "l1-proxy",
     env: "LOCAL",
     subGuideDomain: "l1-guide-1",
     SGConnectSubDomain: "connectsite",
