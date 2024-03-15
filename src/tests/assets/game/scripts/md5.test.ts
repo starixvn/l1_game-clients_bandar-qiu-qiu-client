@@ -58,7 +58,7 @@ describe("MD5 tests", () => {
         const md5Component = new MD5();
         const nodeHintCopyMock = mockDeep<Node>();
         nodeHintCopyMock.getChildByName.mockReturnValue(new Node());
-        md5Component.nodeHintCopy = nodeHintCopyMock;
+        md5Component.nodeCopyButton = nodeHintCopyMock;
         md5Component.lblCaption = mockDeep<Label>();
 
         // Act
