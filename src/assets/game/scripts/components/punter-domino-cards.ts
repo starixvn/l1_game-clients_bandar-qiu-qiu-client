@@ -57,7 +57,7 @@ export class PunterDominoCards extends ObserverComponent {
     }
 
     private processSingleDominoCard(dominoCard: DominoCard, positionArray: Vec3[]): void {
-        dominoCard.setBackDominoCardSystem(this?.systemType);
+        dominoCard.setBackDominoCardSystem();
         this.dominoCards.push(dominoCard);
         positionArray.push(new Vec3(dominoCard.node.position));
     }
