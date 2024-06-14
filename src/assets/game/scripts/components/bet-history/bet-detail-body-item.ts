@@ -74,4 +74,6 @@ export default class BetDetailBodyItem extends BetDetailLogItem {
     checkWinning(choice: string, data: BetDetailLogItemType, status: number): boolean {
         return data.settlementResult[choice] === status;
     }
+
+    parseOddByData(data) {} // game have odds different with choice
 }
