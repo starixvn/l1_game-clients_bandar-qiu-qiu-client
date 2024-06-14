@@ -2,6 +2,12 @@ window.envConfig = {
     systemType: "SG",
     ssl: true,
     subDomain: "proxy",
+    serverDomainMapper: {
+        "www.sabagame.com": "sabagame.net",
+        "www.gamesaba.com": "sabagame.net",
+        "sabagame.com": "sabagame.net",
+        "gamesaba.com": "sabagame.net",
+    },
     env: "PROD",
     sentryUrl: "https://19b3909c434341f0b13eb3a8529e5862@sentry.sabagame.com/9",
     subGuideDomain: "guides",
