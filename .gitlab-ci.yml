@@ -31,7 +31,7 @@ variables:
         exit 1
       fi
   tags:
-    - cocos-new
+    - cocos-test
   artifacts:
     when: always
     paths:
