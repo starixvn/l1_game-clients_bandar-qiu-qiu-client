@@ -1,1 +1,13 @@
-{"ver":"1.1.45","importer":"prefab","imported":true,"uuid":"9f40ef3c-ccf7-49d2-91f4-a8501b098bb3","files":[".json"],"subMetas":{},"userData":{"syncNodeName":"dealer-head-arm"}}
+{
+  "ver": "1.1.50",
+  "importer": "prefab",
+  "imported": true,
+  "uuid": "9f40ef3c-ccf7-49d2-91f4-a8501b098bb3",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "syncNodeName": "dealer-head-arm"
+  }
+}
