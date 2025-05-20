@@ -173,7 +173,6 @@
     "_timeScale": 1,
     "_preCacheMode": 0,
     "_cacheMode": 0,
-    "_defaultCacheMode": 0,
     "_sockets": [],
     "_useTint": false,
     "_debugMesh": false,
@@ -258,6 +257,7 @@
       "__id__": 0
     },
     "fileId": "18sYKK3eVJAb8zmwUPmQs4",
+    "instance": null,
     "targetOverrides": null
   }
 ]
