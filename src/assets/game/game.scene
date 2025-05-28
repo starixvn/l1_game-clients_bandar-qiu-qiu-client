@@ -193,7 +193,7 @@
     "_priority": 0,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 393,
+    "_orthoHeight": 527.5471698113208,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -5382,7 +5382,7 @@
     "lengthOfMd5": 26,
     "md5Tip": null,
     "maximumStringAllowed": 32,
-    "_id": "10hcnxywxIFq8HFAFyHiol"
+    "_id": "ccNvccV/RLsa++wNKmL4+g"
   },
   {
     "__type__": "cc.Node",
