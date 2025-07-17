@@ -23,7 +23,6 @@ const defaultConfig: gc.Configs.SiteConfigs = {
         proxyPath: "bandarqiuqiu",
         route: "bandarqiuqiu",
     },
-    mainObserverNamespace: "BandarQiuQiu",
     tolgeeUrl: "",
 };
 
