@@ -2,11 +2,11 @@ import gc from "@sg/game-client-base";
 import { Label, Node, _decorator, warn } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
-import { AnimationUtils, FunctionUtils } from "db://shared-components/shared/utils";
+import { FunctionUtils } from "db://shared-components/shared/utils";
 import Observer from "observer";
 import { siteConfigs } from "../../../scripts/site-configs";
-import { settings } from "../game-settings";
 import { containerOptions } from "../containerOptions";
+import { settings } from "../game-settings";
 import "./../../../resources/i18n";
 import { IResultInfo, TResult } from "./game-commons";
 import { PunterDominoCards } from "./punter-domino-cards";
@@ -32,21 +32,12 @@ export default class Game extends GameComponent {
     override namespace = settings.name;
     override containerOptions = containerOptions;
     protected punterCardsComp: PunterDominoCards = null;
+    protected enableFixHandleFinish = true;
+    private isAnimatingResult = false;
 
     onLoad() {
         super.onLoad();
         this.punterCardsComp = this.punterCards?.getComponent(PunterDominoCards);
-    }
-
-    @render(RoundHistories.RoundHistoryStore, (store) => store.joinGameHistory)
-    handleJoinGameAndShowResult(joinGameHistory: gc.RoundHistories.IJoinGameHistory) {
-        const { roundHistory, isShow } = joinGameHistory ?? {};
-
-        if (roundHistory && isShow) {
-            this.isReceiveFinishBeforeRoundHistory = false;
-            this.showResult(roundHistory?.result, false, roundHistory?.settlementResult);
-            this.punterCardsComp?.updateGameResultsInfo(roundHistory?.result, roundHistory?.settlementResult);
-        }
     }
 
     async handleStartRound(isStartRound: boolean) {
@@ -68,20 +59,37 @@ export default class Game extends GameComponent {
         settlementResult: gc.GameServiceMessage.TSettlementResult
     ) {
         if (result && settlementResult) {
+            if (this.isAnimatingResult) {
+                return;
+            }
+            this.isAnimatingResult = true;
             this.renderResultDominoCards(result as TResult);
             if (hasAnimation) {
-                try {
-                    if (this.isReceiveFinishBeforeRoundHistory) {
-                        await AnimationUtils.delayTime(0.2);
-                        this.isReceiveFinishBeforeRoundHistory = false;
-                        warn("delay when receive finish before round history");
-                    }
-                    await FunctionUtils.asyncExecute(this.node, this.punterCardsComp?.openDominoCards(result, settlementResult));
-                } catch (error) {
+                this.punterCardsComp?.openDominoCards(result, settlementResult).catch((error) => {
                     warn("An error occurred when openDominoCards", error);
-                }
+                });
             } else {
-                this.punterCardsComp.openDominoCardsWithoutAnim();
+                console.log("render showResult openDominoCardsWithoutAnim");
+                this.punterCardsComp?.openDominoCardsWithoutAnim();
+            }
+
+            this.isAnimatingResult = false;
+        }
+    }
+
+    @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
+    async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
+        if (!firstJoinGameHistory) {
+            return;
+        }
+
+        const lastRound = firstJoinGameHistory?.roundHistory as any;
+        if (lastRound) {
+            const animated = firstJoinGameHistory?.animationHighlight;
+            if (animated) {
+                console.log("render renderStaticResult openDominoCardsWithoutAnim");
+                this.showResult(lastRound?.result, false, lastRound?.settlementResult);
+                this.punterCardsComp?.updateGameResultsInfo(lastRound?.result, lastRound?.settlementResult);
             }
         }
     }

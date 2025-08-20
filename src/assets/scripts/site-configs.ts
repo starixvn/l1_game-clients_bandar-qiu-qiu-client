@@ -8,14 +8,14 @@ declare global {
 
 const defaultConfig: gc.Configs.SiteConfigs = {
     isDev: false, // if this property is true, then you should add token=anything into the querytring to sso to the game http://localhost:7456/?token=anything
-    systemType: "SC",
+    systemType: "VG",
     serverDomainMapper: {
         localhost: "lumigame.com",
     },
     ssl: true,
-    subDomain: "l1-proxy2",
-    env: "LOCAL2",
-    subGuideDomain: "l1-guide-1",
+    subDomain: "l2-proxy",
+    env: "LOCAL",
+    subGuideDomain: "l2-guide",
     SGConnectSubDomain: "connectsite",
     enableMsgpackParserAllGames: false,
     enableMsgpackParserOnNotification: false,
